@@ -35,6 +35,7 @@ body {
   width: 100%;
   height: 600px;
   overflow: hidden;
+ 
 }
 
 .tour-banner img {
@@ -55,6 +56,7 @@ body {
   z-index: 2;
   flex-wrap: wrap;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
 }
 
 .tour-header h1 {

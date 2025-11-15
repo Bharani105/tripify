@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primaryColor: hsl(14, 90%, 53%);
+  --primaryColorLight: hsl(14, 96%, 91%);
+  --bgColor: hsl(0, 0%, 100%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --greyText: hsl(0, 0%, 51%);
+  --cardColor: hsl(300, 3%, 94%);
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 2rem;
+  --h2FontSize: 1.25rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --borderRadius: 1rem;
+}
+
+.about-features-section {
+  background-color: var(--bgColor);
+  padding: 5rem 2rem;
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.about-features-header {
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.about-features-subtitle {
+  color: var(--primaryColor);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.about-features-title {
+  font-size: var(--biggestFontSize);
+  font-weight: 700;
+  color: var(--blackColor);
+  margin-bottom: 1rem;
+}
+
+.about-features-title::after {
+  content: "";
+  width: 90px;
+  height: 4px;
+  background-color: var(--primaryColor);
+  display: block;
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+.about-features-description {
+  color: var(--greyText);
+  font-size: var(--normalFontSize);
+  line-height: 1.6;
+}
+
+.about-features-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.about-feature-card {
+  background: var(--whiteColor);
+  border-radius: var(--borderRadius);
+  padding: 2rem;
+  width: 300px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.about-feature-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+.about-feature-icon-box {
+  background-color: var(--primaryColorLight);
+  color: var(--primaryColor);
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--borderRadius);
+  margin: 0 auto 1rem;
+}
+
+.about-feature-icon {
+  font-size: 2rem;
+}
+
+.about-feature-heading {
+  font-size: var(--h2FontSize);
+  font-weight: 700;
+  color: var(--blackColor);
+  margin-bottom: 0.5rem;
+}
+
+.about-feature-text {
+  color: var(--greyText);
+  font-size: var(--smallFontSize);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .about-features-title {
+    font-size: 1.8rem;
+  }
+
+  .about-feature-card {
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .about-features-grid {
+    gap: 1.5rem;
+  }
+}

@@ -1,0 +1,220 @@
+// import React, { useState } from "react";
+// import "./Auth.css";
+// import { useNavigate } from "react-router-dom";
+// import { BiLogoMediumOld } from "react-icons/bi";
+// import loginImg from "../Assests/login.webp";
+
+// const Login = () => {
+//   const navigate = useNavigate();
+//   const [form, setForm] = useState({ email: "", password: "" });
+//   const [loading, setLoading] = useState(false);
+
+//   const handleChange = (e) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+
+//     setTimeout(() => {
+//       // ✅ 1. Get users from localStorage
+//       const users = JSON.parse(localStorage.getItem("users")) || [];
+
+//       // ✅ 2. Find the matching user
+//       const user = users.find(
+//         (u) => u.email === form.email && u.password === form.password
+//       );
+
+//       if (user) {
+//         // ✅ 3. Save current logged-in user
+//         localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+//         // ✅ 4. Log the login event
+//         const existingLogs = JSON.parse(localStorage.getItem("loginLogs")) || [];
+//         const newLog = {
+//           name: user.name,
+//           email: user.email,
+//           time: new Date().toLocaleString(),
+//         };
+//         existingLogs.push(newLog);
+//         localStorage.setItem("loginLogs", JSON.stringify(existingLogs));
+
+//         // ✅ 5. Redirect admin or normal user
+//         if (user.email === "admin@gmail.com") {
+//           alert("👑 Welcome Admin!");
+//           navigate("/admin");
+//         } else {
+//           alert(`Welcome back, ${user.name}!`);
+//           navigate("/");
+//         }
+//       } else {
+//         alert("❌ Invalid email or password");
+//       }
+
+//       setLoading(false);
+//     }, 800);
+//   };
+
+//   return (
+//     <div className="auth__wrapper">
+//       <div className="auth__visual">
+//         <img src={loginImg} alt="Login" className="auth__img" />
+//         <div className="auth__text">
+//           <h2>Welcome Back!</h2>
+//           <p>
+//             Log in to explore beautiful destinations and plan your next adventure.
+//           </p>
+//         </div>
+//       </div>
+
+//       <div className="auth__panel">
+//         <BiLogoMediumOld className="auth__icon" />
+
+//         <h2>Login to Your Account</h2>
+//         <p className="auth__subtext">
+//           Access exclusive travel deals and rewards.
+//         </p>
+
+//         <form onSubmit={handleSubmit} className="auth__form">
+//           <input
+//             type="email"
+//             name="email"
+//             placeholder="Email Address"
+//             value={form.email}
+//             onChange={handleChange}
+//             required
+//           />
+//           <input
+//             type="password"
+//             name="password"
+//             placeholder="Password"
+//             value={form.password}
+//             onChange={handleChange}
+//             required
+//           />
+//           <button
+//             type="submit"
+//             className={`auth__btn ${form.email && form.password ? "active" : ""}`}
+//             disabled={loading}
+//           >
+//             {loading ? "Logging in..." : "Login"}
+//           </button>
+//         </form>
+
+//         <p className="auth__bottom-text">
+//           Don’t have an account?{" "}
+//           <span onClick={() => navigate("/signup")} className="auth__link">
+//             Sign up
+//           </span>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
+// ? added firebase
+
+import React, { useState } from "react";
+import "./Auth.css";
+import { useNavigate } from "react-router-dom";
+import { BiLogoMediumOld } from "react-icons/bi";
+import loginImg from "../Assests/login.webp";
+
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { doc, getDoc, addDoc, collection } from "firebase/firestore";
+import { getAppAuth, getAppDB } from "../firebase";
+
+const Login = () => {
+  const navigate = useNavigate();
+  const [form, setForm] = useState({ email: "", password: "" });
+  const [loading, setLoading] = useState(false);
+
+  const handleChange = (e) => {
+    setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const auth = getAppAuth();
+      const db = getAppDB();
+
+      const userCredential = await signInWithEmailAndPassword(
+        auth,
+        form.email,
+        form.password
+      );
+
+      const user = userCredential.user;
+
+      const userData = await getDoc(doc(db, "users", user.uid));
+      const profile = userData.exists() ? userData.data() : null;
+
+      await addDoc(collection(db, "loginLogs"), {
+        uid: user.uid,
+        name: profile?.name || "Unknown",
+        email: profile?.email || form.email,
+        time: new Date().toLocaleString(),
+      });
+
+      if ((profile?.email || form.email) === "admin@gmail.com") {
+        alert("👑 Welcome Admin!");
+        navigate("/admin");
+      } else {
+        alert(`Welcome back, ${profile?.name || "User"}!`);
+        navigate("/");
+      }
+    } catch (err) {
+      alert("❌ Invalid email or password");
+    }
+
+    setLoading(false);
+  };
+
+  return (
+    <div className="auth__wrapper">
+      <div className="auth__visual">
+        <img src={loginImg} alt="Login" className="auth__img" />
+        <div className="auth__text">
+          <h2>Welcome Back!</h2>
+          <p>Log in to explore beautiful destinations.</p>
+        </div>
+      </div>
+
+      <div className="auth__panel">
+        <BiLogoMediumOld className="auth__icon" />
+
+        <h2>Login to Your Account</h2>
+
+        <form onSubmit={handleSubmit} className="auth__form">
+          <input type="email" name="email" placeholder="Email Address"
+            value={form.email} onChange={handleChange} required />
+          <input type="password" name="password" placeholder="Password"
+            value={form.password} onChange={handleChange} required />
+
+          <button
+            type="submit"
+            className="auth__btn"
+            disabled={loading}
+          >
+            {loading ? "Logging in..." : "Login"}
+          </button>
+        </form>
+
+        <p className="auth__bottom-text">
+          Don’t have an account?{" "}
+          <span onClick={() => navigate("/signup")} className="auth__link">
+            Sign up
+          </span>
+        </p>
+      </div>
+    </div>
+  );
+};
+
+export default Login;

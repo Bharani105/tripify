@@ -1,0 +1,303 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap");
+
+:root {
+  --primaryColor: hsl(14, 90%, 53%);
+  --primaryColorLight: hsl(14, 96%, 91%);
+  --bgColor: hsl(0, 0%, 100%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --greyText: hsl(0, 0%, 45%);
+  --shadowColor: rgba(0, 0, 0, 0.1);
+  --borderRadius: 1rem;
+  --transitionSpeed: 0.3s;
+}
+
+.tour-section {
+  padding: 5rem 2rem;
+  background-color: var(--bgColor);
+  text-align: center;
+}
+
+.tour-title {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--blackColor);
+  margin-bottom: 3rem;
+  position: relative;
+  letter-spacing: 0.5px;
+}
+
+.tour-title::after {
+  content: "";
+  width: 90px;
+  height: 4px;
+  background-color: var(--primaryColor);
+  display: block;
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+.tour-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 2rem;
+  padding: 0 2rem;
+  margin: 0 auto;
+}
+
+.tour-card {
+  flex: 1 1 350px;
+  max-width: 360px;
+}
+
+.tour-card {
+  background-color: var(--whiteColor);
+  border-radius: var(--borderRadius);
+  box-shadow: 0 5px 20px var(--shadowColor);
+  overflow: hidden;
+  transition: transform var(--transitionSpeed) ease, box-shadow var(--transitionSpeed) ease;
+  width: 100%;
+  max-width: 380px;
+}
+
+.tour-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.tour-image {
+  position: relative;
+  height: 240px;
+  overflow: hidden;
+}
+
+.tour-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--transitionSpeed) ease;
+}
+
+.tour-card:hover img {
+  transform: scale(1.08);
+}
+
+.tour-discount {
+  position: absolute;
+  top: 15px;
+  left: 15px;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 6px 10px;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+  text-transform: uppercase;
+}
+
+.tour-content {
+  padding: 1.5rem;
+  text-align: left;
+}
+
+.tour-content h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--blackColor);
+  margin-bottom: 0.4rem;
+}
+
+.tour-location {
+  color: var(--primaryColor);
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.8rem;
+}
+
+.tour-description {
+  font-size: 0.9rem;
+  color: var(--greyText);
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.tour-pricing {
+  margin-bottom: 1rem;
+}
+
+.old-price {
+  color: var(--greyText);
+  font-size: 0.9rem;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
+.new-price {
+  color: var(--primaryColor);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+.tour-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.tour-duration {
+  font-size: 0.85rem;
+  color: var(--greyText);
+}
+
+.tour-btn {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color var(--transitionSpeed) ease, transform 0.2s ease;
+}
+
+.tour-btn:hover {
+  background-color: hsl(14, 90%, 45%);
+  transform: scale(1.05);
+}
+
+@media (min-width: 1400px) {
+  .tour-container {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 2.5rem;
+  }
+}
+
+@media (max-width: 1024px) {
+  .tour-section {
+    padding: 4rem 1.8rem;
+  }
+
+  .tour-title {
+    font-size: 2rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .tour-container {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 1.8rem;
+    max-width: 800px;
+  }
+
+  .tour-card {
+    max-width: 340px;
+  }
+
+  .tour-image {
+    height: 230px;
+  }
+
+  .tour-content {
+    padding: 1.3rem;
+  }
+
+  .tour-content h3 {
+    font-size: 1.15rem;
+  }
+
+  .tour-description {
+    font-size: 0.88rem;
+    line-height: 1.5;
+  }
+
+  .tour-btn {
+    padding: 0.55rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .tour-section {
+    padding: 3.5rem 1.5rem;
+  }
+
+  .tour-title {
+    font-size: 1.8rem;
+  }
+
+  .tour-container {
+    grid-template-columns: 2fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .tour-card {
+    max-width: 100%;
+  }
+
+  .tour-image {
+    height: 210px;
+  }
+
+  .tour-content {
+    padding: 1.1rem;
+  }
+
+  .tour-content h3 {
+    font-size: 1.05rem;
+  }
+
+  .tour-description {
+    font-size: 0.85rem;
+  }
+
+  .tour-footer {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .tour-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .tour-section {
+    padding: 3rem 1rem;
+  }
+
+  .tour-title {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .tour-container {
+    grid-template-columns: 1fr;
+  }
+
+  .tour-image {
+    height: 200px;
+  }
+
+  .tour-content h3 {
+    font-size: 1rem;
+  }
+
+  .tour-description {
+    font-size: 0.85rem;
+  }
+
+  .tour-btn {
+    width: 100%;
+    padding: 0.7rem 0;
+  }
+
+  .tour-footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.5rem;
+  }
+}

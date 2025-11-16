@@ -258,15 +258,14 @@ const Offer = () => {
                 <span className="tour-duration">{tour.duration}</span>
 
                 {/* 🔥 Firebase-based booking protection */}
+
                 <Link
-                  to="/travel-booking"
+                  to="/tour/travel-booking"
                   state={tour}
                   onClick={(e) => {
                     if (!currentUser) {
                       e.preventDefault();
                       alert("⚠️ Please log in before booking a tour!");
-                    } else {
-                      alert(`🎉 Booking page of ${tour.title}!`);
                     }
                   }}
                 >

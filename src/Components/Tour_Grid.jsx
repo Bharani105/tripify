@@ -283,7 +283,7 @@ const Tour_Grid = () => {
 
                 {/* ✅ Updated Booking Logic Using Firebase Auth */}
                 <Link
-                  to="/travel-booking"
+                  to="/tour/travel-booking"
                   state={tour}
                   onClick={(e) => {
                     if (!currentUser) {

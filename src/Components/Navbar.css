@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --primaryColor: hsl(14, 90%, 53%);
@@ -149,6 +149,212 @@
   color: var(--primaryColor);
 }
 
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loginBtn {
+  background-color: var(--primaryColorLight);
+  color: var(--primaryColor);
+}
+
+.loginBtn:hover {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+}
+
+.signUpBtn {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+}
+
+.signUpBtn:hover {
+  opacity: 0.85;
+}
+
+.logoutBtn {
+  background-color: #ff4d4d;
+  color: var(--whiteColor);
+}
+
+.logoutBtn:hover {
+  background-color: #d93636;
+}
+
+.welcomeText {
+  color: var(--blackColor);
+  font-size: var(--smallFontSize);
+  font-weight: 500;
+}
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primaryColor: hsl(14, 90%, 53%);
+  --primaryColorLight: hsl(14, 96%, 91%);
+  --bgColor: hsl(0, 0%, 100%);
+  --formColor: hsl(20, 42%, 87%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --greyText: hsl(0, 0%, 51%);
+  --inputColor: hsl(330, 12%, 97%);
+  --cardColor: hsl(300, 3%, 94%);
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 2rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+  --borderRadius: 3rem;
+}
+
+/* ⭐ FULL-WIDTH NAVBAR FIX */
+.navBar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100vw !important;          /* Make navbar full screen width */
+    position: fixed;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);      /* Removes side white spaces */
+
+    padding: 1.5rem 2rem;
+    border-bottom: 1.5px solid rgb(211, 211, 211);
+    background: rgba(255, 255, 255, 0.737);
+    backdrop-filter: blur(5px);
+
+    z-index: 1000;
+    margin: 0 !important;
+    box-sizing: border-box;           /* Avoid overflow due to padding */
+}
+
+.logoDiv {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoDiv span {
+  color: var(--blackColor);
+  font-size: var(--h3FontSize);
+  justify-content: center;
+}
+
+.navList .navLi {
+  color: var(--blackColor);
+}
+
+/* ⭐ MOBILE MENU */
+@media screen and (max-width: 767px) {
+  .menu {
+    position: absolute;
+    width: 70%;
+    top: -100rem;
+    left: 50%;
+    transform: translate(-50%);
+    background: rgba(255, 255, 255, 0.94);
+    padding: 2rem;
+    border-radius: 10px;
+    transition: .8s ease-in-out;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 2px 3px 4px rgba(213, 213, 213, 0.516);
+  }
+
+  li {
+    font-size: var(--h3FontSize);
+    font-weight: 500;
+    padding: 1rem 0;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  li:hover {
+    color: var(--primaryColor);
+    border-bottom: 1.5px solid var(--primaryColor);
+  }
+}
+
+.menuIcon {
+  font-size: var(--h1FontSize);
+}
+
+.menuIcon:hover,
+.closeIcon:hover {
+  color: var(--primaryColor);
+}
+
+.closeIcon {
+  font-size: var(--h1FontSize);
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  color: var(--blackColor);
+  transform: translate(-50%);
+}
+
+.showNavbar {
+  top: 8rem;
+}
+
+/* ⭐ DESKTOP NAVIGATION */
+@media screen and (min-width: 768px) {
+  .navBar .logoDiv span {
+    font-size: var(--h1FontSize);
+  }
+
+  .navBar .closeIcon,
+  .navBar .menuIcon {
+    display: none;
+  }
+
+  .navBar .menu ul {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .navBar .menu ul li {
+    font-size: var(--h3FontSize);
+    font-weight: 500;
+    padding: 1rem 0;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  .navBar .menu ul li:hover {
+    color: var(--primaryColor);
+    border-bottom: 1.5px solid var(--primaryColor);
+  }
+}
+
+/* ⭐ LARGE SCREENS */
+@media screen and (min-width: 1240px) {
+  .navBar {
+    padding: 2rem 6rem;
+  }
+
+  .navBar .menu ul {
+    gap: 4rem;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .navBar {
+    padding: 2rem 12rem;
+  }
+}
+
+.navList .navLi:hover,
+.navList .navLi.active {
+  color: var(--primaryColor);
+}
+
+/* ⭐ AUTH BUTTONS */
 .authButtons {
   display: flex;
   align-items: center;

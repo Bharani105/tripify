@@ -117,8 +117,10 @@ import Tours from "./Pages/Tours";
 import Gallery from "./Pages/Gallery";
 import About from "./Pages/About_Us";
 import Contact from "./Pages/Contact";
-import Book from "./Pages/Book";
+import Booking from "./Pages/Booking";
 import AdminDashboard from "./Athuentication/AdminDashboard";
+import BookingSuccess from "./Components/BookingSuccess";
+import ViewBookings from "./Athuentication/ViewBooking";
 
 import { onAuthStateChanged } from "firebase/auth";
 import { getAppAuth } from "./firebase";
@@ -198,6 +200,16 @@ const App = () => {
             </ProtectedRoute>
           }
         />
+
+        <Route
+          path="/tour/travel-booking"
+          element={
+            <ProtectedRoute>
+              <Booking />
+            </ProtectedRoute>
+          }
+        />
+
         <Route
           path="/gallery"
           element={
@@ -214,14 +226,25 @@ const App = () => {
             </ProtectedRoute>
           }
         />
-        <Route
-          path="/travel-booking"
+
+        <Route 
+          path="/booking-success" 
           element={
-            <ProtectedRoute>
-              <Book />
-            </ProtectedRoute>
+           <ProtectedRoute>
+            <BookingSuccess />
+           </ProtectedRoute>
           }
-        />
+          />
+
+        <Route 
+          path="/admin/bookings" 
+          element={
+           <ProtectedRoute>
+            <ViewBookings />
+           </ProtectedRoute>
+          }
+          />
+
 
         {/* Fallback */}
         <Route path="*" element={<Navigate to="/login" replace />} />

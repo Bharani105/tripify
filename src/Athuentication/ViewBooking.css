@@ -1,0 +1,77 @@
+.admin-container {
+  padding: 2rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.admin-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+.bookings-table th {
+  background: #ff6633;
+  color: white;
+  padding: 14px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.bookings-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  font-weight: 600;
+  color: #777;
+}
+
+.payment-id {
+  font-size: 0.8rem;
+  max-width: 150px;
+  word-break: break-all;
+}
+
+.unpaid {
+  color: red;
+  font-weight: bold;
+}
+
+.delete-btn {
+  background: #ff3b3b;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+}

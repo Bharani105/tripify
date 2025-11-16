@@ -188,7 +188,7 @@
 
   .tour-container {
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 1.8rem;
+    gap: 3rem;
     max-width: 800px;
   }
 

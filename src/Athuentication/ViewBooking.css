@@ -1,0 +1,305 @@
+/* .admin-container {
+  padding: 2rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.admin-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.table-wrapper {
+  overflow-x: auto;
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+.bookings-table th {
+  background: #ff6633;
+  color: white;
+  padding: 14px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.bookings-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  font-weight: 600;
+  color: #777;
+}
+
+.payment-id {
+  font-size: 0.8rem;
+  max-width: 150px;
+  word-break: break-all;
+}
+
+.unpaid {
+  color: red;
+  font-weight: bold;
+}
+
+.delete-btn {
+  background: #ff3b3b;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+} */
+
+/* ============================
+   🌐 BASE STYLES
+   ============================ */
+
+.admin-container {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 2rem;
+  font-family: "Montserrat", sans-serif;
+}
+
+.admin-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  color: #333;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch; /* smooth mobile scrolling */
+}
+
+.bookings-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
+}
+
+.bookings-table th {
+  background: #ff6633;
+  color: white;
+  padding: 14px;
+  text-align: left;
+  font-size: 0.95rem;
+}
+
+.bookings-table td {
+  padding: 12px;
+  border-bottom: 1px solid #eee;
+  font-size: 0.9rem;
+}
+
+.no-data {
+  text-align: center;
+  padding: 2rem;
+  font-weight: 600;
+  color: #777;
+}
+
+.payment-id {
+  font-size: 0.8rem;
+  max-width: 150px;
+  word-break: break-all;
+}
+
+.unpaid {
+  color: red;
+  font-weight: bold;
+}
+
+.delete-btn {
+  background: #ff3b3b;
+  color: white;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+  background: #d32f2f;
+  transform: translateY(-2px);
+}
+
+.delete-btn:active {
+  transform: scale(0.95);
+}
+
+
+
+/* ============================
+   📱 RESPONSIVE DESIGN FIXED
+   ============================ */
+
+/* 🔶 1024px — Tablets & small laptops */
+@media (max-width: 1024px) {
+  .admin-container {
+    padding: 1.5rem;
+  }
+
+  .admin-title {
+    font-size: 1.8rem;
+  }
+
+  .bookings-table th,
+  .bookings-table td {
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+/* 🔷 768px — Large phones / small tablets */
+@media (max-width: 768px) {
+  .admin-title {
+    font-size: 1.6rem;
+  }
+
+  .bookings-table th {
+    font-size: 0.85rem;
+    padding: 10px;
+  }
+
+  .bookings-table td {
+    font-size: 0.82rem;
+    padding: 8px;
+  }
+
+  .payment-id {
+    max-width: 120px;
+  }
+
+  .delete-btn {
+    padding: 7px 12px;
+    font-size: 0.78rem;
+  }
+}
+
+/* 🔵 600px — Medium phones */
+@media (max-width: 600px) {
+  .admin-container {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .admin-title {
+    font-size: 1.4rem;
+  }
+
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  /* Prevent table shrinking */
+  .bookings-table {
+    width: 100%;
+    min-width: 650px;
+  }
+
+  .delete-btn {
+    padding: 6px 10px;
+    font-size: 0.75rem;
+  }
+}
+
+/* 🟣 425px — Most smartphones */
+@media (max-width: 430px) {
+  .admin-container {
+    padding: 0.8rem;
+    width: 430px;
+  }
+
+  .admin-title {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .table-wrapper {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  .bookings-table {
+    width: 100%;
+    min-width: 620px;
+  }
+
+  .bookings-table th {
+    font-size: 0.8rem;
+    padding: 9px;
+  }
+
+  .bookings-table td {
+    font-size: 0.75rem;
+    padding: 7px;
+  }
+
+  .payment-id {
+    max-width: 85px;
+  }
+
+  .delete-btn {
+    padding: 6px 9px;
+    font-size: 0.7rem;
+  }
+}
+
+/* 🟡 375px — Very small phones */
+@media (max-width: 375px) {
+  .admin-container {
+    padding: 0.7rem;
+    width: 100%;
+  }
+
+  .admin-title {
+    font-size: 1.15rem;
+  }
+
+  .bookings-table {
+    width: 100%;
+    min-width: 600px;
+  }
+
+  .delete-btn {
+    padding: 5px 8px;
+    font-size: 0.68rem;
+  }
+}

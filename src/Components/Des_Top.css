@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap');
+
+:root {
+  --primaryColor: hsl(14, 90%, 53%);
+  --primaryColorLight: hsl(14, 96%, 91%);
+  --bgColor: hsl(0, 0%, 100%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 10%);
+  --greyText: hsl(0, 0%, 51%);
+  --cardColor: hsl(300, 3%, 94%);
+  --borderRadius: 1rem;
+  --transition: all 0.4s ease-in-out;
+}
+
+.top-destinations {
+  font-family: 'Montserrat', sans-serif;
+  background: linear-gradient(180deg, #ffffff 0%, #f9f9f9 100%);
+  padding: 5rem 2rem;
+  text-align: center;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  color: var(--blackColor);
+  margin-bottom: 1rem;
+}
+
+.section-title::after {
+  content: "";
+  width: 90px;
+  height: 4px;
+  background-color: var(--primaryColor);
+  display: block;
+  margin: 0.6rem auto 0;
+  border-radius: 2px;
+}
+
+.section-subtitles {
+  color: var(--greyText);
+  font-size: 1rem;
+  max-width: 600px;
+  margin: 0 auto 3rem;
+  line-height: 1.5;
+}
+
+.parent {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(2, 250px);
+  gap: 1rem;
+  position: relative;
+}
+
+.content-div {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--borderRadius);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.content-div img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.content-div:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.content-div:hover img {
+  filter: brightness(70%);
+}
+
+.div1 {
+  grid-column: 1 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.div2 {
+  grid-column: 3 / span 2;
+  grid-row: 1 / span 1;
+}
+
+.div3 {
+  grid-column: 5 / span 2;
+  grid-row: 1 / span 2;
+}
+
+.div4 {
+  grid-column: 3 / span 2;
+  grid-row: 2 / span 1;
+}
+
+.text-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+  color: var(--whiteColor);
+  text-align: left;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: var(--transition);
+}
+
+.content-div:hover .text-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.text-overlay h2 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.stars {
+  color: gold;
+  font-size: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .top-destinations {
+    padding: 4rem 1.5rem;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .section-subtitles {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .parent {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 300px);
+    gap: 0.8rem;
+  }
+
+  .div1 {
+    grid-column: 1 / span 4;
+    grid-row: 1 / span 1;
+  }
+
+  .div2 {
+    grid-column: 1 / span 2;
+    grid-row: 2 / span 1;
+  }
+
+  .div3 {
+    grid-column: 3 / span 2;
+    grid-row: 2 / span 1;
+  }
+
+  .div4 {
+    grid-column: 1 / span 4;
+    grid-row: 3 / span 1;
+  }
+
+  .text-overlay h2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .top-destinations {
+    padding: 3rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-subtitles {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+  }
+
+  .parent {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto;
+    gap: 1rem;
+  }
+
+  .div1, .div2, .div3, .div4 {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .content-div {
+    height: 240px;
+  }
+
+  .text-overlay {
+    padding: 1rem;
+  }
+
+  .text-overlay h2 {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 1.6rem;
+  }
+
+  .section-subtitles {
+    font-size: 0.9rem;
+  }
+
+  .parent {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .content-div {
+    height: 220px;
+  }
+
+  .text-overlay h2 {
+    font-size: 0.95rem;
+  }
+
+  .stars {
+    font-size: 0.85rem;
+  }
+}

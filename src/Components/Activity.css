@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primaryColor: hsl(14, 90%, 53%);
+  --primaryColorLight: hsl(14, 96%, 91%);
+  --bgColor: hsl(0, 0%, 100%);
+  --formColor: hsl(20, 42%, 87%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --greyText: hsl(0, 0%, 51%);
+  --inputColor: hsl(330, 12%, 97%);
+  --cardColor: hsl(300, 3%, 94%);
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 2rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+  --borderRadius: 3rem;
+}
+
+.activity-section {
+  padding: 30px 10%;
+  text-align: center;
+  background-color: var(--bgColor);
+  color: var(--blackColor);
+  font-family: 'Montserrat', sans-serif;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.section-subtitle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  letter-spacing: 2px;
+  color: var(--primaryColor);
+  text-transform: uppercase;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.section-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: var(--blackColor);
+}
+
+.section-description {
+  max-width: 700px;
+  margin: 0 auto 50px auto;
+  color: var(--greyText);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+
+.activity-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+}
+
+.activity-card {
+  background: var(--whiteColor);
+  border-radius: 16px;
+  padding: 40px 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.activity-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+  background-color: var(--primaryColorLight);
+}
+
+.activity-icon {
+  font-size: 2.5rem;
+  color: var(--primaryColor);
+  margin-bottom: 15px;
+  transition: color 0.3s ease;
+}
+
+.activity-card:hover .activity-icon {
+  color: hsl(14, 90%, 63%);
+}
+
+.activity-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--blackColor);
+  margin-bottom: 8px;
+}
+
+.activity-destination {
+  font-size: 0.9rem;
+  color: var(--greyText);
+}
+
+@media (max-width: 768px) {
+  .section-title {
+    font-size: 1.8rem;
+  }
+
+  .section-description {
+    font-size: 0.9rem;
+    margin-bottom: 40px;
+  }
+
+  .activity-card {
+    padding: 30px 15px;
+  }
+
+  .activity-icon {
+    font-size: 2.2rem;
+  }
+  
+}

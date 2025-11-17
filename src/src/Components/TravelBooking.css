@@ -31,11 +31,23 @@ body {
   padding: 0;
 }
 
-.tour-banner {
+.travel-booking-page {
   width: 100%;
+  padding: 0 !important;
+  margin: 0 !important;
+  /* background-color: yellowgreen; */
+}
+
+/* FULL-WIDTH (FULL BLEED) HERO IMAGE */
+.tour-banner {
+  width: 100vw;
   height: 600px;
   overflow: hidden;
- 
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
 }
 
 .tour-banner img {
@@ -44,19 +56,41 @@ body {
   object-fit: cover;
 }
 
+.booking-content {
+  padding: 3rem 0 !important;
+}
+
+.tour-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.booking-content {
+  width: 100vw !important;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  padding: 3rem 0 !important;
+}
+
+.tour-details-left{
+  width: 85%;
+  margin-left: 5rem;
+}
+
 .tour-header {
   background: var(--primaryColorLight);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 2rem 4rem;
+  padding: 2rem 10rem;
   border-radius: var(--borderRadius);
   margin-top: -60px;
   position: relative;
   z-index: 2;
   flex-wrap: wrap;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  
 }
 
 .tour-header h1 {
@@ -108,14 +142,20 @@ body {
     flex-direction: column;
     gap: 1.5rem;
     padding: 2rem;
+    /* background-color: aqua; */
+  }
+
+  .tour-details-left{
+    width: 80%;
+    margin-left: 5.5rem;
   }
 }
 
-.booking-content {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 3rem;
-  padding: 3rem 4rem;
+@media (max-width:430px) {
+  .tour-details-left{
+    width: 90%;
+    margin-left: 1.6rem;
+  }
 }
 
 @media (max-width: 992px) {
@@ -146,7 +186,7 @@ body {
 .excluded-card {
   background: var(--primaryColorLight);
   border-radius: var(--borderRadius);
-  padding: 1.8rem 2rem;
+  padding: 1.5rem 2rem;
   border: 1px solid var(--borderColor);
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
@@ -183,7 +223,7 @@ body {
 
 .include li::before {
   content: "✔";
-  color: var(--primaryColor);
+  color: rgb(16, 195, 16);
   font-weight: bold;
 }
 
@@ -213,7 +253,6 @@ body {
 .trip-plan {
   margin-top: 2.5rem;
   overflow: hidden;
-  z-index: -1;
 }
 
 .trip-plan h2 {
@@ -223,6 +262,7 @@ body {
 .booking-form {
   background-color: var(--primaryColorLight);
   padding: 2rem;
+  margin-right:6rem;
   border-radius: var(--borderRadius);
   height: fit-content;
   box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
@@ -293,9 +333,6 @@ body {
   opacity: 0.8;
 }
 
-/* ------------------------------
-   🔹 Button Styles
---------------------------------*/
 .book-btn {
   background-color: var(--primaryColor);
   color: var(--whiteColor);
@@ -320,7 +357,6 @@ body {
   cursor: not-allowed;
 }
 
-/* ✨ Animations */
 @keyframes fadeIn {
   from {
     opacity: 0;
@@ -336,6 +372,7 @@ body {
   .booking-form {
     padding: 1.5rem;
     border-radius: 1.5rem;
+    margin-left: 5rem;
   }
 
   .book-btn {

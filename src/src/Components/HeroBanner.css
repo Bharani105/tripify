@@ -23,8 +23,11 @@
 .hero-banner {
   position: relative;
   height: 95vh;
-  width: 100%;
-  top: 0;
+  /* width: 100%; */
+  /* top: 0; */
+  width: 100vw;
+  left: 50%;
+  margin-left: -50vw;
 }
 
 .hero-banner .hero-bg {
@@ -120,17 +123,19 @@
   .hero-btn {
     font-size: var(--h3FontSize);
   }
+  
 }
 
-@media screen and (min-width: 1040px) {
+@media screen and (min-width: 1024px) {
   .hero-text h1 {
     font-size: 4.5rem;
     max-width: 70%;
     margin: auto;
   }
 
-  .hero-banner{
+  /* .hero-banner{
     position: relative;
     height: 70vh;
-  }
+    background-color: aqua;
+  } */
 }

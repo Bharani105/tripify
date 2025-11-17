@@ -1,161 +1,3 @@
-// import React, { useEffect, useState } from "react";
-// import { NavLink, useNavigate } from "react-router-dom";
-// import "./AdminDashboard.css";
-
-// const AdminDashboard = () => {
-//   const [users, setUsers] = useState([]);
-//   const [logins, setLogins] = useState([]);
-//   const [checkingAuth, setCheckingAuth] = useState(true);
-//   const navigate = useNavigate();
-
-//   useEffect(() => {
-//     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
-
-//     if (!loggedInUser || loggedInUser.email !== "admin@gmail.com") {
-//       alert("🚫 Access denied! Admins only.");
-//       navigate("/login");
-//       return;
-//     }
-
-//     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
-//     const storedLogins = JSON.parse(localStorage.getItem("loginLogs")) || [];
-
-//     setUsers(storedUsers);
-//     setLogins(storedLogins);
-//     setCheckingAuth(false);
-//   }, [navigate]);
-
-//   const handleLogout = () => {
-//     localStorage.removeItem("loggedInUser");
-//     alert("✅ Logged out successfully!");
-//     navigate("/login");
-//   };
-
-//   if (checkingAuth) {
-//     return (
-//       <div className="loader">
-//         <div className="spinner"></div>
-//         <p>Checking admin access...</p>
-//       </div>
-//     );
-//   }
-
-//   const totalUsers = users.length;
-//   const totalLogins = logins.length;
-//   const lastLogin =
-//     logins.length > 0 ? logins[logins.length - 1].time : "No logins yet";
-
-//   return (
-//     <div className="dashboard-container full-width">
-//       {/* 🌟 Admin Navbar */}
-//       <nav className="admin-navbar">
-//         <div className="admin-logo">Tripify Admin</div>
-
-//         <div className="admin-links">
-//           <NavLink to="/" className="admin-home">
-//             🏠 Home
-//           </NavLink>
-//           <button className="admin-logout" onClick={handleLogout}>
-//             🚪 Logout
-//           </button>
-//         </div>
-//       </nav>
-
-//       {/* HEADER */}
-//       <header className="header">
-//         <div className="header-top">
-//           <h1>👨‍💼 Admin Dashboard</h1>
-//           <p className="sub-header">Welcome, Admin — manage your platform</p>
-//         </div>
-        
-//       </header>
-
-//       {/* SUMMARY CARDS */}
-//       <section className="cards-container">
-//         <div className="card">
-//           <h3>Total Registered Users</h3>
-//           <p className="card-value">{totalUsers}</p>
-//         </div>
-//         <div className="card">
-//           <h3>Total Logins</h3>
-//           <p className="card-value">{totalLogins}</p>
-//         </div>
-//         <div className="card">
-//           <h3>Last Login</h3>
-//           <p className="card-value">{lastLogin}</p>
-//         </div>
-//         <div className="card">
-//           <h3>Active Admin</h3>
-//           <p className="card-value">admin@gmail.com</p>
-//         </div>
-//       </section>
-
-//       {/* USERS TABLE */}
-//       <section className="table-section">
-//         <h2>🧑‍🤝‍🧑 Registered Users</h2>
-//         {users.length === 0 ? (
-//           <p>No users found</p>
-//         ) : (
-//           <table className="table">
-//             <thead>
-//               <tr>
-//                 <th>Name</th>
-//                 <th>Email</th>
-//                 <th>Password</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {users.map((user, i) => (
-//                 <tr key={i}>
-//                   <td>{user.name}</td>
-//                   <td>{user.email}</td>
-//                   <td>{user.password}</td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         )}
-//       </section>
-
-//       {/* LOGIN HISTORY */}
-//       <section className="table-section">
-//         <h2>🔑 Login History</h2>
-//         {logins.length === 0 ? (
-//           <p>No login activity yet.</p>
-//         ) : (
-//           <table className="table">
-//             <thead>
-//               <tr>
-//                 <th>Name</th>
-//                 <th>Email</th>
-//                 <th>Login Time</th>
-//               </tr>
-//             </thead>
-//             <tbody>
-//               {logins.map((log, i) => (
-//                 <tr key={i}>
-//                   <td>{log.name}</td>
-//                   <td>{log.email}</td>
-//                   <td>{log.time}</td>
-//                 </tr>
-//               ))}
-//             </tbody>
-//           </table>
-//         )}
-//       </section>
-
-//       <footer className="footer">
-//         <p>
-//           © {new Date().getFullYear()} Travel Management System | Admin Portal
-//         </p>
-//       </footer>
-//     </div>
-//   );
-// };
-
-// export default AdminDashboard;
-
-
 //? added firebase
 
 import React, { useEffect, useState } from "react";
@@ -178,7 +20,7 @@ const AdminDashboard = () => {
 
     const adminEmail = auth.currentUser?.email;
 
-    if (adminEmail !== "admin@gmail.com") {
+    if (adminEmail !== "tripifyadmin@gmail.com") {
       alert("🚫 Access denied! Admins only.");
       navigate("/login");
       return;
@@ -214,7 +56,8 @@ const AdminDashboard = () => {
 
   const totalUsers = users.length;
   const totalLogins = logins.length;
-  const lastLogin = logins.length > 0 ? logins[logins.length - 1].time : "No logins yet";
+  const lastLogin =
+    logins.length > 0 ? logins[logins.length - 1].time : "No logins yet";
 
   return (
     <div className="dashboard-container full-width">
@@ -223,6 +66,12 @@ const AdminDashboard = () => {
 
         <div className="admin-links">
           <NavLink to="/" className="admin-home">🏠 Home</NavLink>
+
+          {/* ⭐ ADDED: View Bookings Button */}
+          <NavLink to="/admin/bookings" className="admin-home">
+            📖 View Bookings
+          </NavLink>
+
           <button className="admin-logout" onClick={handleLogout}>🚪 Logout</button>
         </div>
       </nav>
@@ -234,6 +83,7 @@ const AdminDashboard = () => {
         </div>
       </header>
 
+      {/* ⭐ DASHBOARD CARDS */}
       <section className="cards-container">
         <div className="card">
           <h3>Total Registered Users</h3>
@@ -256,6 +106,7 @@ const AdminDashboard = () => {
         </div>
       </section>
 
+      {/* USERS TABLE */}
       <section className="table-section">
         <h2>🧑‍🤝‍🧑 Registered Users</h2>
         <table className="table">
@@ -273,6 +124,7 @@ const AdminDashboard = () => {
         </table>
       </section>
 
+      {/* LOGIN LOGS TABLE */}
       <section className="table-section">
         <h2>🔑 Login History</h2>
         <table className="table">

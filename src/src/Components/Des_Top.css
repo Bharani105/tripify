@@ -144,7 +144,7 @@
 
   .parent {
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 220px);
+    grid-template-rows: repeat(3, 300px);
     gap: 0.8rem;
   }
 

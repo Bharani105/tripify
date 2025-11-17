@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
   --primaryColor: hsl(14, 90%, 53%);
@@ -168,7 +168,6 @@
   transform: scale(1.15);
 }
 
-/* 👣 Footer Bottom */
 .footerBottom {
   text-align: center;
   border-top: 1px solid var(--primaryColor);
@@ -223,5 +222,233 @@
   .footerContainer {
     max-width: 1350px;
     margin: 0 auto;
+  }
+} */
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primaryColor: hsl(14, 90%, 53%);
+  --primaryColorLight: hsl(14, 96%, 91%);
+  --bgColor: hsl(0, 0%, 100%);
+  --formColor: hsl(20, 42%, 87%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --greyText: hsl(0, 0%, 51%);
+  --inputColor: hsl(330, 12%, 97%);
+  --cardColor: hsl(300, 3%, 94%);
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.6rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+  --borderRadius: 3rem;
+}
+
+/* ⭐ FULL WIDTH FOOTER (NO SIDE SPACES) */
+.footer {
+  background: var(--primaryColorLight);
+  color: var(--blackColor);
+  padding: 4rem 0 2rem;
+
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+
+  font-family: "Montserrat", sans-serif;
+  box-sizing: border-box;
+}
+
+/* ⭐ INNER CONTAINER FULL-WIDTH + RESPONSIVE GRID */
+.footerContainer {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+
+  width: 100%;
+  max-width: 100% !important; /* removes shrinking */
+  padding: 0 2rem;
+  margin: 0;
+
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.footerSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* LOGO */
+.footerLogo {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--primaryColor);
+  margin-bottom: 1rem;
+}
+
+.footerLogo .icon {
+  font-size: 2.2rem;
+  margin-right: 10px;
+}
+
+.footerLogo span {
+  color: var(--primaryColor);
+}
+
+/* TEXT */
+.footerDesc {
+  color: var(--greyText);
+  line-height: 1.6;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  max-width: 350px;
+}
+
+/* LINKS */
+.linkTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--primaryColor);
+}
+
+.footerSection ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footerSection ul li {
+  margin: 8px 0;
+}
+
+.footerSection ul li a {
+  color: var(--greyText);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.footerSection ul li a:hover {
+  color: var(--primaryColor);
+  padding-left: 6px;
+}
+
+/* NEWSLETTER */
+.newsletterText {
+  color: var(--greyText);
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.5;
+  max-width: 320px;
+}
+
+.newsletterForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  width: 100%;
+  max-width: 320px;
+}
+
+.newsletterForm input {
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: var(--borderRadius);
+  background: var(--inputColor);
+  outline: none;
+  font-size: 0.9rem;
+}
+
+.newsletterForm button {
+  padding: 0.9rem 1rem;
+  border: none;
+  border-radius: var(--borderRadius);
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.newsletterForm button:hover {
+  background: var(--blackColor);
+}
+
+/* CONTACT */
+.infoItem {
+  margin: 0.5rem 0;
+}
+
+.infoItem a {
+  color: var(--greyText);
+  font-size: 0.95rem;
+}
+
+.infoItem a:hover {
+  color: var(--primaryColor);
+  padding-left: 6px;
+}
+
+/* SOCIALS */
+.socials {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.socials .icon {
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.socials .icon:hover {
+  color: var(--primaryColor);
+  transform: scale(1.15);
+}
+
+/* FOOTER BOTTOM */
+.footerBottom {
+  text-align: center;
+  border-top: 1px solid var(--primaryColor);
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  color: var(--greyText);
+  font-size: 0.9rem;
+}
+
+.footerBottom p {
+  margin: 0.4rem 0;
+}
+
+/* ⭐ RESPONSIVE GRID BREAKPOINTS */
+@media (min-width: 640px) {
+  .footerContainer {
+    grid-template-columns: repeat(3, 1fr);
+    text-align: left;
+    align-items: start;
+  }
+
+  .footerSection {
+    align-items: flex-start;
+  }
+}
+
+@media (min-width: 900px) {
+  .footer {
+    padding: 5rem 0 3rem;
+  }
+
+  .footerContainer {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 3rem;
   }
 }

@@ -177,6 +177,17 @@ body {
   background-color: var(--cardColor);
 }
 
+.clickable-card {
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.clickable-card:hover {
+  background: #ffe0d6;
+  transform: translateY(-3px);
+}
+
+
 /* --- FOOTER --- */
 .footer {
   background-color: var(--primaryColorLight);
@@ -241,5 +252,11 @@ body {
 
   .table-section {
     padding: 20px;
+  }
+}
+
+@media (max-width: 430px){
+  .header{
+    margin-top: 48px;
   }
 }

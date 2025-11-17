@@ -45,7 +45,7 @@ const Login = () => {
         time: new Date().toLocaleString(),
       });
 
-      if ((profile?.email || form.email) === "admin@gmail.com") {
+      if ((profile?.email || form.email) === "tripifyAdmin@gmail.com") {
         alert("👑 Welcome Admin!");
         navigate("/admin");
       } else {

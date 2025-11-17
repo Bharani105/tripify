@@ -15,13 +15,13 @@ const Contact_Form = () => {
     setSending(true);
     setStatus("");
 
-    emailjs
-      .sendForm(
-        "service_w3wilsg",
-        "template_bqjsmu2", 
-        formRef.current,   
-        "_eFL6DRzf9_4Z3roQ"
-      )
+    emailjs.sendForm(
+  import.meta.env.VITE_TRAVEL_SERVICE_ID,
+  import.meta.env.VITE_TRAVEL_TEMPLATE_ID,
+  formRef.current,
+  import.meta.env.VITE_TRAVEL_PUBLIC_KEY
+)
+
       .then(
         () => {
           setStatus("✅ Message sent successfully!");

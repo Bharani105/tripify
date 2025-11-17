@@ -22,6 +22,131 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 
+// import React from "react";
+// import "./Des_Hero.css";
+// import img1 from "../Assests/img1.jpg";
+// import img2 from "../Assests/img2.jpg";
+// import img3 from "../Assests/img3.jpg";
+// import img4 from "../Assests/img4.jpg";
+// import img5 from "../Assests/img5.jpg";
+
+// const destinations = [
+//   { img: img1, title: "Spain", tours: 6 },
+//   { img: img2, title: "Thailand", tours: 6, sub: "Wildlife" },
+//   { img: img3, title: "Africa", tours: 6 },
+//   { img: img4, title: "Australia", tours: 6 },
+//   { img: img5, title: "Switzerland", tours: 6, sub: "Adventure" },
+//   { img: img2, title: "Europe", tours: 6, sub: "Adventure" },
+//   { img: img3, title: "San Francisco", tours: 6 },
+//   { img: img3, title: "China", tours: 6, sub: "Tours" },
+//   { img: img4, title: "Germany", tours: 6 },
+//   { img: img5, title: "Dubai", tours: 6 },
+// ];
+
+// const Des_Hero = () => {
+//   return (
+//     <section className="destinations-one">
+//       <div className="container">
+//         <div className="grid">
+//           {destinations.map((item, index) => (
+//             <div key={index} className="destination-card">
+//               <img src={item.img} alt={item.title} className="destination-image" />
+//               <div className="destination-overlay">
+//                 {item.sub && <p className="destination-sub">{item.sub}</p>}
+//                 <h2 className="destination-title">{item.title}</h2>
+//                 <a href="#" className="destination-btn">
+//                   {item.tours} tours
+//                 </a>
+//               </div>
+//             </div>
+//           ))}
+//         </div>
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Des_Hero;
+/* .destinations-one {
+  padding: 80px 0;
+  background: #f9f9f9;
+}
+
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 20px;
+}
+
+.destination-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.destination-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.destination-card:hover .destination-image {
+  transform: scale(1.1);
+}
+
+.destination-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.destination-card:hover .destination-overlay {
+  opacity: 1;
+}
+
+.destination-sub {
+  font-size: 14px;
+  color: #ffcc00;
+  margin-bottom: 5px;
+}
+
+.destination-title {
+  font-size: 22px;
+  margin: 0;
+  font-weight: bold;
+}
+
+.destination-btn {
+  margin-top: 10px;
+  background: #ff6600;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 25px;
+  font-size: 14px;
+  text-decoration: none;
+  width: fit-content;
+  transition: background 0.3s;
+}
+
+.destination-btn:hover {
+  background: #ff8533;
+} */
 
 import React, { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
@@ -311,3 +436,2048 @@ const TravelBooking = () => {
 };
 
 export default TravelBooking;
+
+// import React, { useState, useEffect, useRef } from "react";
+// import { useLocation } from "react-router-dom";
+// import "./TravelBooking.css";
+// import Accordian from "./Accordian";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
+// import emailjs from "emailjs-com";
+
+// import {
+//   RiTimeLine,
+//   RiUserLine,
+//   RiFlightTakeoffLine,
+//   RiMapPinLine,
+// } from "react-icons/ri";
+
+// export default function TravelBooking() {
+//   const location = useLocation();
+//   const tour = location.state;
+//   const formRef = useRef();
+
+//   useEffect(() => {
+//     Aos.init({ duration: 2000 });
+//   }, []);
+
+//   const [active, setActive] = useState("");
+//   const [sending, setSending] = useState(false);
+//   const [status, setStatus] = useState("");
+
+//   const sendEmail = (e) => {
+//     e.preventDefault();
+//     setSending(true);
+//     setStatus("");
+
+//     emailjs
+//       .sendForm(
+//         "service_xft3fag",
+//         "template_5mmq8jl", 
+//         formRef.current, 
+//         "hNNhto4ZOIPtk9L2w"
+//       )
+//       .then(
+//         () => {
+//           setStatus(
+//             "🎉 Thanks for booking! Your request has been received — our travel team will contact you soon."
+//           );
+//           setSending(false);
+//           formRef.current.reset();
+//         },
+//         (error) => {
+//           console.error(error);
+//           setStatus("❌ Oops! Something went wrong. Please try again later.");
+//           setSending(false);
+//         }
+//       );
+//   };
+
+//   const tripPlan = [
+//     {
+//       title: "Day 1: Arrival & City Tour",
+//       desc: "Arrival and check-in at hotel. Evening city tour with welcome dinner.",
+//     },
+//     {
+//       title: "Day 2: Cultural Sightseeing",
+//       desc: "Guided sightseeing and cultural experience around major landmarks.",
+//     },
+//     {
+//       title: "Day 3: Adventure Day",
+//       desc: "Hiking, kayaking, or beach trip followed by a campfire.",
+//     },
+//     {
+//       title: "Day 4: Leisure & Shopping",
+//       desc: "Free day with optional spa, local market visits, and relaxation.",
+//     },
+//     {
+//       title: "Day 5: Departure",
+//       desc: "Farewell breakfast and transfer to the airport.",
+//     },
+//   ];
+
+//   return (
+//     <div className="travel-booking-page" data-aos="fade-up">
+//       <div className="tour-banner">
+//         <img
+//           src={
+//             tour?.image ||
+//             "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1600&q=80"
+//           }
+//           alt={tour?.title || "Tour Destination"}
+//         />
+//       </div>
+
+//       <div className="tour-header" data-aos="fade-up">
+//         <div className="tour-header-left">
+//           <h1>{tour?.title || "New Destination"}</h1>
+//           <p className="price">
+//             ${tour?.discountPrice || "870"} <span>/ Per Person</span>
+//           </p>
+//         </div>
+
+//         <div className="tour-header-icons">
+//           <div className="detail-item">
+//             <RiTimeLine className="detail-icon" />
+//             <div>
+//               <span>Duration</span>
+//               <p>{tour?.duration || "3 Days"}</p>
+//             </div>
+//           </div>
+
+//           <div className="detail-item">
+//             <RiUserLine className="detail-icon" />
+//             <div>
+//               <span>Min Age</span>
+//               <p>{tour?.age || "12+"}</p>
+//             </div>
+//           </div>
+
+//           <div className="detail-item">
+//             <RiFlightTakeoffLine className="detail-icon" />
+//             <div>
+//               <span>Tour Type</span>
+//               <p>{tour?.type || "Adventure, Fun"}</p>
+//             </div>
+//           </div>
+
+//           <div className="detail-item">
+//             <RiMapPinLine className="detail-icon" />
+//             <div>
+//               <span>Location</span>
+//               <p>{tour?.location || "Los Angeles"}</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       <div className="booking-content" data-aos="fade-up">
+//         <div className="tour-details-left">
+//           <div className="overview">
+//             <h2>Overview</h2>
+//             <p>
+//               Explore breathtaking destinations, experience local culture, and
+//               create unforgettable memories. From relaxing beaches to thrilling
+//               adventures — we bring your dream vacation to life.
+//             </p>
+//           </div>
+
+//           <div className="included-section">
+//             <div className="included-card" data-aos="fade-up">
+//               <h2>Included</h2>
+//               <ul className="include">
+//                 <li>Pick and Drop Services</li>
+//                 <li>1 Meal Per Day</li>
+//                 <li>Cruise Dinner & Music Event</li>
+//                 <li>Visit 7 Best Places in the City</li>
+//               </ul>
+//             </div>
+
+//             <div className="excluded-card" data-aos="fade-up">
+//               <h2>Excluded</h2>
+//               <ul className="exclude">
+//                 <li>Additional Services</li>
+//                 <li>Insurance</li>
+//                 <li>Food & Drinks</li>
+//                 <li>Tickets</li>
+//               </ul>
+//             </div>
+//           </div>
+
+//           <div className="trip-plan">
+//             <h2>Tour Plan</h2>
+//             {tripPlan.map((item, index) => (
+//               <Accordian
+//                 key={index}
+//                 title={item.title}
+//                 desc={item.desc}
+//                 active={active}
+//                 setActive={setActive}
+//               />
+//             ))}
+//           </div>
+//         </div>
+        
+//         <div className="booking-form" data-aos="fade-up">
+//           <h2>Book This Tour</h2>
+
+//           {status && (
+//             <p
+//               className={`status-message ${
+//                 status.includes("🎉") ? "success" : "error"
+//               }`}
+//             >
+//               {status}
+//             </p>
+//           )}
+
+//           <form ref={formRef} onSubmit={sendEmail}>
+//             <input type="text" name="fullName" placeholder="Full Name" required />
+//             <input type="email" name="email" placeholder="Email Address" required />
+//             <input type="tel" name="phone" placeholder="Phone Number" required />
+//             <input
+//               type="number"
+//               name="travelers"
+//               placeholder="Number of Travelers"
+//               min="1"
+//               required
+//             />
+//             <input type="date" name="date" required />
+
+//             <select name="packageType" required>
+//               <option value="">Select Package Type</option>
+//               <option value="Standard">Standard Package</option>
+//               <option value="Luxury">Luxury Package</option>
+//               <option value="Honeymoon">Honeymoon Package</option>
+//               <option value="Family">Family Package</option>
+//               <option value="Adventure">Adventure Package</option>
+//             </select>
+
+//             <textarea
+//               name="message"
+//               placeholder="Special Requests (Optional)"
+//               rows="4"
+//             ></textarea>
+
+//             <button type="submit" className="book-btn" disabled={sending}>
+//               {sending ? "Sending..." : "BOOK NOW"}
+//             </button>
+//           </form>
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
+
+// import React, { useState, useEffect, useRef } from "react";
+// import { useLocation, useNavigate } from "react-router-dom";
+// import "./TravelBooking.css";
+// import Accordian from "./Accordian";
+// import Aos from "aos";
+// import "aos/dist/aos.css";
+// import emailjs from "emailjs-com";
+
+// import {
+//   RiTimeLine,
+//   RiUserLine,
+//   RiFlightTakeoffLine,
+//   RiMapPinLine,
+// } from "react-icons/ri";
+
+// import { getAppDB } from "../firebase";
+// import { collection, addDoc } from "firebase/firestore";
+
+// const TravelBooking = () => {
+//   const location = useLocation();
+//   const navigate = useNavigate();
+//   const tour = location.state;
+//   const formRef = useRef();
+
+//   // ⭐ BASE PRICE
+//   const basePrice = Number(tour?.discountPrice || tour?.price || 0);
+
+//   // ⭐ LIVE TOTAL CALCULATOR
+//   const [travelers, setTravelers] = useState(1);
+//   const totalPrice = basePrice * travelers;
+
+//   const [sending, setSending] = useState(false);
+//   const [active, setActive] = useState("");
+//   const [status, setStatus] = useState("");
+
+//   // ⭐ LOAD RAZORPAY SCRIPT
+//   useEffect(() => {
+//     const script = document.createElement("script");
+//     script.src = "https://checkout.razorpay.com/v1/checkout.js";
+//     script.async = true;
+//     document.body.appendChild(script);
+//   }, []);
+
+//   // ⭐ FIREBASE SAVE
+//   const saveBookingToFirebase = async (paymentId) => {
+//     try {
+//       const db = getAppDB();
+//       await addDoc(collection(db, "bookings"), {
+//         fullName: formRef.current.fullName.value,
+//         email: formRef.current.email.value,
+//         phone: formRef.current.phone.value,
+//         travelers,
+//         date: formRef.current.date.value,
+//         packageType: formRef.current.packageType.value,
+//         message: formRef.current.message.value,
+//         tourName: tour?.title,
+//         amount: totalPrice,
+//         paymentId: paymentId,
+//         createdAt: new Date().toISOString(),
+//       });
+//     } catch (err) {
+//       console.error("Firestore Error:", err);
+//     }
+//   };
+
+//   // ⭐ BOOK + PAY BUTTON
+//   const handleBookingAndPayment = async (e) => {
+//     e.preventDefault();
+//     setSending(true);
+//     setStatus("");
+
+//     const options = {
+//       key: "rzp_test_Rg5WHazuaCEiYd",
+//       amount: totalPrice * 100,
+//       currency: "INR",
+//       name: "Tripify Booking",
+//       description: tour?.title,
+
+//       handler: async function (response) {
+//         // Save to Firebase
+//         await saveBookingToFirebase(response.razorpay_payment_id);
+
+//         // Send Email
+//         emailjs.sendForm(
+//           "service_xft3fag",
+//           "template_5mmq8jl",
+//           formRef.current,
+//           "hNNhto4ZOIPtk9L2w"
+//         );
+
+//         alert("🎉 Payment Successful! Booking Confirmed.");
+//         navigate("/booking-success");
+//       },
+
+//       prefill: {
+//         name: formRef.current.fullName.value,
+//         email: formRef.current.email.value,
+//         contact: formRef.current.phone.value,
+//       },
+
+//       theme: { color: "#ff5733" },
+//     };
+
+//     const rzp = new window.Razorpay(options);
+//     rzp.open();
+//     setSending(false);
+//   };
+
+//   // ⭐ AOS Animation Init
+//   useEffect(() => {
+//     Aos.init({ duration: 1500 });
+//   }, []);
+
+//   // ⭐ TRIPPLAN LIST
+//   const tripPlan = [
+//     { title: "Day 1: Arrival & City Tour", desc: "Arrival & evening sightseeing." },
+//     { title: "Day 2: Cultural Day", desc: "Museum & historical tour." },
+//     { title: "Day 3: Adventure Day", desc: "Kayaking, hiking & campfire." },
+//     { title: "Day 4: Shopping & Relax", desc: "Markets, spa & leisure time." },
+//     { title: "Day 5: Departure", desc: "Farewell breakfast & checkout." },
+//   ];
+
+//   return (
+//     <div className="travel-booking-page" data-aos="fade-up">
+//       {/* BANNER */}
+//       <div className="tour-banner">
+//         <img
+//           src={
+//             tour?.image ||
+//             "https://images.unsplash.com/photo-1507525428034-b723cf961d3e"
+//           }
+//           alt={tour?.title}
+//         />
+//       </div>
+
+//       {/* HEADER */}
+//       <div className="tour-header" data-aos="fade-up">
+//         <div>
+//           <h1>{tour?.title}</h1>
+//           <p className="price">
+//             ₹{basePrice} <span>/ Per Person</span>
+//           </p>
+//         </div>
+
+//         <div className="tour-header-icons">
+//           <div className="detail-item">
+//             <RiTimeLine className="detail-icon" />
+//             <div>
+//               <span>Duration</span>
+//               <p>{tour?.duration || "3 Days"}</p>
+//             </div>
+//           </div>
+
+//           <div className="detail-item">
+//             <RiUserLine className="detail-icon" />
+//             <div>
+//               <span>Min Age</span>
+//               <p>{tour?.age || "12+"}</p>
+//             </div>
+//           </div>
+
+//           <div className="detail-item">
+//             <RiFlightTakeoffLine className="detail-icon" />
+//             <div>
+//               <span>Tour Type</span>
+//               <p>{tour?.type || "Adventure"}</p>
+//             </div>
+//           </div>
+
+//           <div className="detail-item">
+//             <RiMapPinLine className="detail-icon" />
+//             <div>
+//               <span>Location</span>
+//               <p>{tour?.location}</p>
+//             </div>
+//           </div>
+//         </div>
+//       </div>
+
+//       {/* CONTENT SECTION */}
+//       <div className="booking-content" data-aos="fade-up">
+
+//         {/* LEFT SIDE */}
+//         <div className="tour-details-left">
+//           <div className="overview">
+//             <h2>Overview</h2>
+//             <p>
+//               Explore breathtaking destinations, experience local culture,
+//               and create unforgettable memories.
+//             </p>
+//           </div>
+
+//           <div className="included-section">
+//             <div className="included-card">
+//               <h2>Included</h2>
+//               <ul className="include">
+//                 <li>Pick & Drop</li>
+//                 <li>Hotel Stay</li>
+//                 <li>Tour Guide</li>
+//                 <li>Cruise Dinner</li>
+//               </ul>
+//             </div>
+
+//             <div className="excluded-card">
+//               <h2>Excluded</h2>
+//               <ul className="exclude">
+//                 <li>Flight Tickets</li>
+//                 <li>Insurance</li>
+//                 <li>Extra Activities</li>
+//               </ul>
+//             </div>
+//           </div>
+
+//           <div className="trip-plan">
+//             <h2>Tour Plan</h2>
+//             {tripPlan.map((item, index) => (
+//               <Accordian
+//                 key={index}
+//                 title={item.title}
+//                 desc={item.desc}
+//                 active={active}
+//                 setActive={setActive}
+//               />
+//             ))}
+//           </div>
+//         </div>
+
+//         {/* RIGHT SIDE — FORM */}
+//         <div className="booking-form" data-aos="fade-up">
+//           <h2>Book This Tour</h2>
+
+//           {/* PRICE SUMMARY */}
+//           <div className="price-box">
+//             <p><strong>Price per Person:</strong> ₹{basePrice}</p>
+//             <p><strong>Travellers:</strong> {travelers}</p>
+//             <p style={{ fontWeight: "bold", color: "green" }}>
+//               Total Price: ₹{totalPrice}
+//             </p>
+//           </div>
+
+//           <form ref={formRef}>
+//             <input type="text" name="fullName" placeholder="Full Name" required />
+
+//             <input type="email" name="email" placeholder="Email" required />
+
+//             <input type="tel" name="phone" placeholder="Phone Number" required />
+
+//             <input
+//               type="number"
+//               name="travelers"
+//               min="1"
+//               value={travelers}
+//               onChange={(e) => setTravelers(Number(e.target.value))}
+//               placeholder="Travellers"
+//               required
+//             />
+
+//             <input type="date" name="date" required />
+
+//             <select name="packageType" required>
+//               <option value="">Select Package Type</option>
+//               <option value="Standard">Standard</option>
+//               <option value="Luxury">Luxury</option>
+//               <option value="Honeymoon">Honeymoon</option>
+//               <option value="Family">Family</option>
+//             </select>
+
+//             <input type="text" value={`₹${totalPrice}`} readOnly />
+
+//             <textarea name="message" placeholder="Special Requests..." />
+
+//             {/* FINAL SINGLE BUTTON */}
+//             <button
+//               onClick={handleBookingAndPayment}
+//               className="book-btn"
+//               disabled={sending}
+//             >
+//               {sending ? "Processing..." : "BOOK & PAY"}
+//             </button>
+//           </form>
+
+//         </div>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default TravelBooking;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primaryColor: hsl(14, 90%, 53%);
+  --primaryColorLight: hsl(14, 96%, 91%);
+  --bgColor: hsl(0, 0%, 100%);
+  --formColor: hsl(20, 42%, 87%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --greyText: hsl(0, 0%, 51%);
+  --inputColor: hsl(330, 12%, 97%);
+  --cardColor: hsl(300, 3%, 94%);
+  --borderColor: hsl(0, 0%, 90%);
+  --transition: 0.3s ease;
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 1.6rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+  --borderRadius: 3rem;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  color: var(--blackColor);
+  background-color: var(--bgColor);
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+}
+
+.tour-banner {
+  width: 100%;
+  height: 600px;
+  overflow: hidden;
+ 
+}
+
+.tour-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.tour-header {
+  background: var(--primaryColorLight);
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 2rem 4rem;
+  border-radius: var(--borderRadius);
+  margin-top: -60px;
+  position: relative;
+  z-index: 2;
+  flex-wrap: wrap;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+}
+
+.tour-header h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.tour-header .price {
+  color: var(--primaryColor);
+  font-weight: 700;
+  margin-top: 0.3rem;
+}
+
+.tour-header .price span {
+  color: var(--greyText);
+  font-size: 0.95rem;
+}
+
+.tour-header-icons {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detail-icon {
+  color: var(--primaryColor);
+  font-size: 1.8rem;
+  margin-top: 3px;
+}
+
+.detail-item span {
+  color: var(--greyText);
+  font-size: 0.85rem;
+}
+
+.detail-item p {
+  font-weight: 600;
+  margin: 0;
+}
+
+@media (max-width: 768px) {
+  .tour-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+  }
+}
+
+.booking-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 3rem;
+  padding: 3rem 4rem;
+}
+
+@media (max-width: 992px) {
+  .booking-content {
+    grid-template-columns: 1fr;
+    padding: 2rem;
+  }
+}
+
+.overview h2 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.overview p {
+  color: var(--greyText);
+  line-height: 1.8;
+}
+
+.included-section {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.included-card,
+.excluded-card {
+  background: var(--primaryColorLight);
+  border-radius: var(--borderRadius);
+  padding: 1.8rem 2rem;
+  border: 1px solid var(--borderColor);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.included-card:hover,
+.excluded-card:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.included-card h2,
+.excluded-card h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--primaryColor);
+}
+
+.include,
+.exclude {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.include li,
+.exclude li {
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.include li::before {
+  content: "✔";
+  color: var(--primaryColor);
+  font-weight: bold;
+}
+
+.exclude li::before {
+  content: "✖";
+  color: crimson;
+  font-weight: bold;
+}
+
+@media (min-width: 992px) {
+  .included-section {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 3rem;
+  }
+
+  .included-card,
+  .excluded-card {
+    flex: 1;
+  }
+}
+
+.accordianContainer {
+  margin-bottom: 1rem;
+}
+
+.trip-plan {
+  margin-top: 2.5rem;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.trip-plan h2 {
+  margin-bottom: 2.5rem;
+}
+
+.booking-form {
+  background-color: var(--primaryColorLight);
+  padding: 2rem;
+  border-radius: var(--borderRadius);
+  height: fit-content;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+  transition: all var(--transition);
+}
+
+.booking-form h2 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.status-message {
+  font-weight: 600;
+  text-align: center;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 1rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.status-message.success {
+  background-color: var(--whiteColor);
+  color: rgb(19, 225, 19);
+  border: 1px solid var(--primaryColor);
+}
+
+.status-message.error {
+  background-color: #fff5f5;
+  color: #e74c3c;
+  border: 1px solid #e74c3c;
+}
+
+.booking-form form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.booking-form input,
+.booking-form select,
+.booking-form textarea {
+  padding: 12px 15px;
+  border: 1px solid var(--borderColor);
+  border-radius: 8px;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border var(--transition);
+  background: var(--whiteColor);
+}
+
+.booking-form textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+.booking-form input:focus,
+.booking-form select:focus,
+.booking-form textarea:focus {
+  border-color: var(--primaryColor);
+  box-shadow: 0 0 4px rgba(235, 92, 43, 0.3);
+}
+
+.booking-form input::placeholder,
+.booking-form textarea::placeholder {
+  color: var(--greyText);
+  opacity: 0.8;
+}
+
+.book-btn {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+  border: none;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.book-btn:hover {
+  background-color: hsl(14, 90%, 46%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(235, 92, 43, 0.2);
+}
+
+.book-btn:disabled {
+  background-color: hsl(14, 90%, 70%);
+  cursor: not-allowed;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .booking-form {
+    padding: 1.5rem;
+    border-radius: 1.5rem;
+  }
+
+  .book-btn {
+    font-size: 0.95rem;
+  }
+} */
+
+// import React,{useEffect} from "react";
+// // import "./Offer.css";
+// // import './Tour_Grid.css'
+// import { Link } from "react-router-dom";
+// import Aos from 'aos'
+// import 'aos/dist/aos.css'
+
+// const tourPackages = [
+//   {
+//     title: "Bali Paradise Getaway",
+//     location: "Bali, Indonesia",
+//     price: "899",
+//     duration: "7 Days / 6 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Relax on the beaches of Bali and experience the magic of temples, tropical jungles, and culture.",
+//   },
+//   {
+//     title: "Swiss Alps Adventure",
+//     location: "Zurich, Switzerland",
+//     price: "1,499",
+//     duration: "8 Days / 7 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Discover the breathtaking beauty of the Alps — snow peaks, lakes, and charming villages await.",
+//   },
+//   {
+//     title: "Desert Safari Escape",
+//     location: "Dubai, UAE",
+//     price: "699",
+//     duration: "5 Days / 4 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Ride across golden dunes, enjoy luxury desert camps, and witness stunning Arabian sunsets.",
+//   },
+//   {
+//     title: "Greek Island Hopping",
+//     location: "Santorini, Greece",
+//     price: "1,199",
+//     duration: "6 Days / 5 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Sail through blue waters, explore white-washed towns, and indulge in authentic Greek cuisine.",
+//   },
+//   {
+//     title: "Bali Paradise Getaway",
+//     location: "Bali, Indonesia",
+//     price: "899",
+//     duration: "7 Days / 6 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Relax on the beaches of Bali and experience the magic of temples, tropical jungles, and culture.",
+//   },
+//   {
+//     title: "Swiss Alps Adventure",
+//     location: "Zurich, Switzerland",
+//     price: "1,499",
+//     duration: "8 Days / 7 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Discover the breathtaking beauty of the Alps — snow peaks, lakes, and charming villages await.",
+//   },
+//   {
+//     title: "Desert Safari Escape",
+//     location: "Dubai, UAE",
+//     price: "699",
+//     duration: "5 Days / 4 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Ride across golden dunes, enjoy luxury desert camps, and witness stunning Arabian sunsets.",
+//   },
+//   {
+//     title: "Greek Island Hopping",
+//     location: "Santorini, Greece",
+//     price: "1,199",
+//     duration: "6 Days / 5 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Sail through blue waters, explore white-washed towns, and indulge in authentic Greek cuisine.",
+//   },
+//   {
+//     title: "Greek Island Hopping",
+//     location: "Santorini, Greece",
+//     price: "1,199",
+//     duration: "6 Days / 5 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Sail through blue waters, explore white-washed towns, and indulge in authentic Greek cuisine.",
+//   }
+// ];
+
+// const Tour_Grid = () => {
+//   useEffect(()=>{
+//     Aos.init({duration:2000})
+//   },[])
+//   return (
+//     <section className="tour-section">
+//       <h2 className="tour-title" data-aos='fade-up'>Exclusive Tour Packages</h2>
+//       <div className="tour-container" data-aos='fade-up'>
+//         {tourPackages.map((tour, index) => (
+//           <div className="tour-card" key={index} data-aos='fade-up'>
+//             <div className="tour-image">
+//               <img src={tour.image} alt={tour.title} />
+//               <span className="tour-price">{tour.price}</span>
+//             </div>
+//             <div className="tour-content">
+//               <h3>{tour.title}</h3>
+//               <p className="tour-location">{tour.location}</p>
+//               <p className="tour-description">{tour.description}</p>
+//               <div className="tour-footer">
+//                 <span className="tour-duration">{tour.duration}</span>
+//                  <Link
+//                   to="/travel-booking"
+//                   state={tour}
+//                   onClick={(e) => {
+//                     const loggedInUser = localStorage.getItem("loggedInUser");
+//                     if (!loggedInUser) {
+//                       e.preventDefault();
+//                       alert("⚠️ Please log in before booking a tour!");
+//                     } else {
+//                       alert(`🎉 You are booking the ${tour.title}!`);
+//                     }
+//                   }}
+//                 >
+//                   <button className="tour-btn">Book Now</button>
+//                 </Link>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Tour_Grid;
+
+// import React,{useEffect} from "react";
+// import "./Offer.css";
+// import Aos from 'aos'
+// import 'aos/dist/aos.css'
+// import { Link } from "react-router-dom";
+// const tourPackages = [
+//   {
+//     title: "Bali Paradise Getaway",
+//     location: "Bali, Indonesia",
+//     originalPrice: "999",
+//     discountPrice: "799",
+//     discount: "20% OFF",
+//     duration: "7 Days / 6 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Relax on the beaches of Bali and experience the magic of temples, tropical jungles, and culture.",
+//   },
+//   {
+//     title: "Swiss Alps Adventure",
+//     location: "Zurich, Switzerland",
+//     originalPrice: "1,699",
+//     discountPrice: "1,399",
+//     discount: "Save $300",
+//     duration: "8 Days / 7 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Discover the breathtaking beauty of the Alps — snow peaks, lakes, and charming villages await.",
+//   },
+//   {
+//     title: "Desert Safari Escape",
+//     location: "Dubai, UAE",
+//     originalPrice: "799",
+//     discountPrice: "599",
+//     discount: "25% OFF",
+//     duration: "5 Days / 4 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Ride across golden dunes, enjoy luxury desert camps, and witness stunning Arabian sunsets.",
+//   },
+//   {
+//     title: "Greek Island Hopping",
+//     location: "Santorini, Greece",
+//     originalPrice: "1,299",
+//     discountPrice: "1,099",
+//     discount: "Save $200",
+//     duration: "6 Days / 5 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Sail through blue waters, explore white-washed towns, and indulge in authentic Greek cuisine.",
+//   },
+//   {
+//     title: "Desert Safari Escape",
+//     location: "Dubai, UAE",
+//     originalPrice: "799",
+//     discountPrice: "599",
+//     discount: "25% OFF",
+//     duration: "5 Days / 4 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Ride across golden dunes, enjoy luxury desert camps, and witness stunning Arabian sunsets.",
+//   },
+//   {
+//     title: "Greek Island Hopping",
+//     location: "Santorini, Greece",
+//     originalPrice: "1,299",
+//     discountPrice: "1,099",
+//     discount: "Save $200",
+//     duration: "6 Days / 5 Nights",
+//     image:
+//       "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1000&q=80",
+//     description:
+//       "Sail through blue waters, explore white-washed towns, and indulge in authentic Greek cuisine.",
+//   }
+// ];
+
+// const Offer = () => {
+//   useEffect(()=>{
+//     Aos.init({duration:2000})
+//   },[])
+//   return (
+//     <section className="tour-section">
+//       <h2 className="tour-title" data-aos='fade-up'>Limited-Time Travel Offers</h2>
+//       <div className="tour-container" data-aos='fade-up'>
+//         {tourPackages.map((tour, index) => (
+//           <div className="tour-card" key={index} data-aos='fade-up'>
+//             <div className="tour-image">
+//               <img src={tour.image} alt={tour.title} />
+//               <span className="tour-discount">{tour.discount}</span>
+//             </div>
+
+//             <div className="tour-content">
+//               <h3>{tour.title}</h3>
+//               <p className="tour-location">{tour.location}</p>
+//               <p className="tour-description">{tour.description}</p>
+
+//               <div className="tour-pricing">
+//                 <span className="old-price">${tour.originalPrice}</span>
+//                 <span className="new-price">${tour.discountPrice}</span>
+//               </div>
+
+//               <div className="tour-footer">
+//                 <span className="tour-duration">{tour.duration}</span>
+                
+//                  <Link
+//                   to="/travel-booking"
+//                   state={tour}
+//                   onClick={(e) => {
+//                     const loggedInUser = localStorage.getItem("loggedInUser");
+//                     if (!loggedInUser) {
+//                       e.preventDefault();
+//                       alert("⚠️ Please log in before booking a tour!");
+//                     } else {
+//                       alert(`🎉 Booking page of ${tour.title}!`);
+//                     }
+//                   }}
+//                 >
+//                   <button className="tour-btn">Book Now</button>
+//                 </Link>
+//               </div>
+//             </div>
+//           </div>
+//         ))}
+//       </div>
+//     </section>
+//   );
+// };
+
+// export default Offer;
+
+// import { useState, useEffect } from "react";
+// import { NavLink, useNavigate } from "react-router-dom";
+// import { BiLogoMediumOld } from "react-icons/bi";
+// import { AiFillCloseCircle } from "react-icons/ai";
+// // import { PiDotsNineBold } from "react-icons/pi";
+// import { MdMenu } from "react-icons/md";
+
+// import "./Navbar.css";
+
+// const Navbar = () => {
+//   const [navbar, setNavbar] = useState("menu");
+//   const [user, setUser] = useState(null);
+//   const navigate = useNavigate();
+
+//   // Check for logged-in user on mount
+//   useEffect(() => {
+//     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+//     if (loggedInUser) setUser(loggedInUser);
+
+//     // Update user state dynamically when localStorage changes
+//     const handleStorageChange = () => {
+//       const updatedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+//       setUser(updatedUser);
+//     };
+
+//     window.addEventListener("storage", handleStorageChange);
+//     return () => window.removeEventListener("storage", handleStorageChange);
+//   }, []);
+
+//   // Show/hide navbar for mobile
+//   const showNavbar = () => setNavbar("menu showNavbar");
+//   const hideNavbar = () => setNavbar("menu");
+
+//   // Logout function
+//   const handleLogout = () => {
+//     localStorage.removeItem("loggedInUser");
+//     setUser(null);
+//     alert("You’ve been logged out!");
+//     navigate("/login");
+//   };
+
+//   return (
+//     <div className="navBar">
+     
+//       <div className="logoDiv">
+//         <BiLogoMediumOld className="icon" />
+//         <NavLink to="/" onClick={hideNavbar}>
+//           <span>Tripify</span>
+//         </NavLink>
+//       </div>
+
+//       <div className={navbar}>
+//         <ul>
+//           <li className="navList">
+//             <NavLink to="/" className="navLi" onClick={hideNavbar}>
+//               Home
+//             </NavLink>
+//           </li>
+//           <li className="navList">
+//             <NavLink to="/about" className="navLi" onClick={hideNavbar}>
+//               About
+//             </NavLink>
+//           </li>
+//           <li className="navList">
+//             <NavLink to="/destination" className="navLi" onClick={hideNavbar}>
+//               Destination
+//             </NavLink>
+//           </li>
+//           <li className="navList">
+//             <NavLink to="/tour" className="navLi" onClick={hideNavbar}>
+//               Tour
+//             </NavLink>
+//           </li>
+//           <li className="navList">
+//             <NavLink to="/gallery" className="navLi" onClick={hideNavbar}>
+//               Gallery
+//             </NavLink>
+//           </li>
+          
+//           <li className="navList">
+//             <NavLink to="/contact" className="navLi" onClick={hideNavbar}>
+//               Contact
+//             </NavLink>
+//           </li>
+
+//           {user?.email === "admin@gmail.com" && (
+//             <li className="navList">
+//               <NavLink to="/admin" className="navLi" onClick={hideNavbar}>
+//                 Dashboard
+//               </NavLink>
+//             </li>
+//           )}
+
+//         </ul>
+
+//         <AiFillCloseCircle className="icon closeIcon" onClick={hideNavbar} />
+//       </div>
+
+//       <div className="authButtons">
+//         {user ? (
+//           <>
+//             <span className="welcomeText">Hi, {user.name.split(" ")[0]}</span>
+//             <button className="btn logoutBtn" onClick={handleLogout}>
+//               Logout
+//             </button>
+//           </>
+//         ) : (
+//           <>
+//             <button className="btn loginBtn" onClick={() => navigate("/login")}>
+//               Login
+//             </button>
+//             <button className="btn signUpBtn" onClick={() => navigate("/signup")}>
+//               Sign Up
+//             </button>
+//           </>
+//         )}
+//       </div>
+
+//       {/* <PiDotsNineBold className="icon menuIcon" onClick={showNavbar} /> */}
+//       <MdMenu className="icon menuIcon" onClick={showNavbar} />
+//     </div>
+//   );
+// };
+
+// export default Navbar;
+
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+  --primaryColor: hsl(14, 90%, 53%);
+  --primaryColorLight: hsl(14, 96%, 91%);
+  --bgColor: hsl(0, 0%, 100%);
+  --formColor: hsl(20, 42%, 87%);
+  --whiteColor: hsl(0, 0%, 100%);
+  --blackColor: hsl(0, 0%, 18%);
+  --greyText: hsl(0, 0%, 51%);
+  --inputColor: hsl(330, 12%, 97%);
+  --cardColor: hsl(300, 3%, 94%);
+  --biggestFontSize: 2.5rem;
+  --h1FontSize: 2rem;
+  --h2FontSize: 1.25rem;
+  --h3FontSize: 1rem;
+  --normalFontSize: 0.938rem;
+  --smallFontSize: 0.813rem;
+  --smallestFontSize: 0.75rem;
+  --borderRadius: 3rem;
+}
+
+.navBar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    position: fixed;
+    border-bottom: 1.5px solid rgb(211, 211, 211);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.737);
+}
+
+.logoDiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logoDiv span{
+    color: var(--blackColor);
+    font-size: var(--h3FontSize);
+    justify-content: center;
+}
+
+.navList .navLi{
+    color: var(--blackColor);
+}
+
+@media screen and (max-width:767px) {
+    .menu{
+        position: absolute;
+        width: 70%;
+        top: -100rem;
+        left: 50%;
+        transform: translate(-50%);
+        background: rgba(255, 255, 255, 0.94);
+        padding: 2rem;
+        border-radius: 10px;
+        transition: .8s ease-in-out;
+        backdrop-filter: blur(5px);
+        box-shadow: 0 2px 3px 4px rgba(213, 213, 213, 0.516);
+    }
+    li{
+        font-size: var(--h3FontSize);
+        font-weight: 500;
+        padding: 1rem 0;
+        text-align: center;
+        cursor: pointer;
+    }
+    li:hover{
+        color: var(--primaryColor);
+        border-bottom: 1.5px solid var(--primaryColor);
+    }
+}
+
+.menuIcon{
+    font-size: var(--h1FontSize);
+}
+
+.menuIcon:hover
+,.closeIcon:hover{
+    color: var(--primaryColor);
+} 
+
+.closeIcon{
+    font-size: var(--h1FontSize);
+    position: absolute;
+    bottom: -11px;
+    left: 50%;
+    color: var(--blackColor);
+    transform: translate(-50%);
+}
+
+.showNavbar{
+    top: 8rem;
+}
+
+@media screen and (min-width:768px) {
+    .navBar .logoDiv span{
+        font-size: var(--h1FontSize);
+    }
+
+    .navBar .closeIcon,
+    .navBar .menuIcon{
+        display: none;
+    }
+
+    .navBar .menu ul{
+        display: flex;
+        gap: 2rem;
+    }
+
+    .navBar .menu ul li{
+        font-size: var(--h3FontSize);
+        font-weight: 500;
+        padding: 1rem 0;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .navBar .menu ul li:hover{
+        color: var(--primaryColor);
+        border-bottom: 1.5px solid var(--primaryColor);
+    }
+}
+
+@media screen and (min-width:1240px) {
+    .navBar{
+        padding: 2rem 6rem;
+    }
+
+    .navBar .menu ul{
+        gap: 4rem;
+    }
+}
+
+
+@media screen and (min-width:1440px) {
+    .navBar{
+        padding: 2rem 12rem;
+    }
+}
+
+.navList .navLi:hover,
+.navList .navLi.active {
+  color: var(--primaryColor);
+}
+
+.authButtons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.loginBtn {
+  background-color: var(--primaryColorLight);
+  color: var(--primaryColor);
+}
+
+.loginBtn:hover {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+}
+
+.signUpBtn {
+  background-color: var(--primaryColor);
+  color: var(--whiteColor);
+}
+
+.signUpBtn:hover {
+  opacity: 0.85;
+}
+
+.logoutBtn {
+  background-color: #ff4d4d;
+  color: var(--whiteColor);
+}
+
+.logoutBtn:hover {
+  background-color: #d93636;
+}
+
+.welcomeText {
+  color: var(--blackColor);
+  font-size: var(--smallFontSize);
+  font-weight: 500;
+}
+ */
+
+ // import React , {useEffect} from 'react'
+// import './Middle.css'
+// import Aos from 'aos'
+// import 'aos/dist/aos.css'
+
+// const Middle = () => {
+
+//   useEffect(()=>{
+//       Aos.init({duration:2000})
+//     },[])
+    
+//   return (
+//     <div className='middle section'>
+//       <div className="secContainer container" data-aos='fade-up'>
+//         <div className="grid">
+//             <span className="flex" >
+//                 <h1>10</h1>
+//                 <p>World of Experince</p>
+//             </span>
+
+//             <span className="flex" >
+//                 <h1>2k+</h1>
+//                 <p>Fine Destination</p>
+//             </span>
+
+//             <span className="flex" >
+//                 <h1>10k+</h1>
+//                 <p>Customer Reviews</p>
+//             </span>
+
+//             <span className="flex" >
+//                 <h1>4.8</h1>
+//                 <p>Overall Rating</p>
+//             </span>
+//         </div>
+//       </div>
+//     </div>
+//   )
+// }
+
+// export default Middle
+
+// import React, { useState } from "react";
+// import "./Auth.css";
+// import { useNavigate } from "react-router-dom";
+// import { BiLogoMediumOld } from "react-icons/bi";
+// import loginImg from "../Assests/login.webp";
+
+// const Signup = () => {
+//   const navigate = useNavigate();
+//   const [form, setForm] = useState({
+//     name: "",
+//     email: "",
+//     password: "",
+//     confirmPassword: "",
+//   });
+
+//   const handleChange = (e) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+
+//     if (!form.name || !form.email || !form.password || !form.confirmPassword) {
+//       alert("Please fill all fields");
+//       return;
+//     }
+
+//     if (form.password.length < 6) {
+//       alert("Password must be at least 6 characters");
+//       return;
+//     }
+
+//     if (form.password !== form.confirmPassword) {
+//       alert("Passwords do not match!");
+//       return;
+//     }
+
+//     const users = JSON.parse(localStorage.getItem("users")) || [];
+//     const userExists = users.find((u) => u.email === form.email);
+
+//     if (userExists) {
+//       alert("User already exists! Please login.");
+//       navigate("/login");
+//       return;
+//     }
+
+//     users.push({ name: form.name, email: form.email, password: form.password });
+//     localStorage.setItem("users", JSON.stringify(users));
+
+//     alert("Signup successful!");
+//     navigate("/login");
+//   };
+
+//   return (
+//     <div className="auth__wrapper">
+//       <div className="auth__visual">
+//         <img src={loginImg} alt="Signup" className="auth__img" />
+//         <div className="auth__text">
+//           <h2>Join Our Travel Community!</h2>
+//           <p>
+//             Sign up to start discovering top destinations and personalized deals.
+//           </p>
+//         </div>
+//       </div>
+
+//       <div className="auth__panel">
+//         <BiLogoMediumOld className="auth__icon" />
+
+//         <h2>Create Your Account</h2>
+//         <p className="auth__subtext">
+//           Start your adventure with us today!
+//         </p>
+
+//         <form onSubmit={handleSubmit} className="auth__form">
+//           <input
+//             type="text"
+//             name="name"
+//             placeholder="Full Name"
+//             value={form.name}
+//             onChange={handleChange}
+//             required
+//           />
+//           <input
+//             type="email"
+//             name="email"
+//             placeholder="Email Address"
+//             value={form.email}
+//             onChange={handleChange}
+//             required
+//           />
+//           <input
+//             type="password"
+//             name="password"
+//             placeholder="Password"
+//             value={form.password}
+//             onChange={handleChange}
+//             required
+//           />
+//           <input
+//             type="password"
+//             name="confirmPassword"
+//             placeholder="Confirm Password"
+//             value={form.confirmPassword}
+//             onChange={handleChange}
+//             required
+//           />
+//           <button type="submit" className="auth__btn">
+//             Sign Up
+//           </button>
+//         </form>
+
+//         <p className="auth__bottom-text">
+//           Already have an account?{" "}
+//           <span onClick={() => navigate("/login")} className="auth__link">
+//             Login here
+//           </span>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Signup;
+
+// import React, { useState } from "react";
+// import "./Auth.css";
+// import { useNavigate } from "react-router-dom";
+// import { BiLogoMediumOld } from "react-icons/bi";
+// import loginImg from "../Assests/login.webp";
+
+// const Login = () => {
+//   const navigate = useNavigate();
+//   const [form, setForm] = useState({ email: "", password: "" });
+//   const [loading, setLoading] = useState(false);
+
+//   const handleChange = (e) => {
+//     setForm({ ...form, [e.target.name]: e.target.value });
+//   };
+
+//   const handleSubmit = (e) => {
+//     e.preventDefault();
+//     setLoading(true);
+
+//     setTimeout(() => {
+//       // ✅ 1. Get users from localStorage
+//       const users = JSON.parse(localStorage.getItem("users")) || [];
+
+//       // ✅ 2. Find the matching user
+//       const user = users.find(
+//         (u) => u.email === form.email && u.password === form.password
+//       );
+
+//       if (user) {
+//         // ✅ 3. Save current logged-in user
+//         localStorage.setItem("loggedInUser", JSON.stringify(user));
+
+//         // ✅ 4. Log the login event
+//         const existingLogs = JSON.parse(localStorage.getItem("loginLogs")) || [];
+//         const newLog = {
+//           name: user.name,
+//           email: user.email,
+//           time: new Date().toLocaleString(),
+//         };
+//         existingLogs.push(newLog);
+//         localStorage.setItem("loginLogs", JSON.stringify(existingLogs));
+
+//         // ✅ 5. Redirect admin or normal user
+//         if (user.email === "admin@gmail.com") {
+//           alert("👑 Welcome Admin!");
+//           navigate("/admin");
+//         } else {
+//           alert(`Welcome back, ${user.name}!`);
+//           navigate("/");
+//         }
+//       } else {
+//         alert("❌ Invalid email or password");
+//       }
+
+//       setLoading(false);
+//     }, 800);
+//   };
+
+//   return (
+//     <div className="auth__wrapper">
+//       <div className="auth__visual">
+//         <img src={loginImg} alt="Login" className="auth__img" />
+//         <div className="auth__text">
+//           <h2>Welcome Back!</h2>
+//           <p>
+//             Log in to explore beautiful destinations and plan your next adventure.
+//           </p>
+//         </div>
+//       </div>
+
+//       <div className="auth__panel">
+//         <BiLogoMediumOld className="auth__icon" />
+
+//         <h2>Login to Your Account</h2>
+//         <p className="auth__subtext">
+//           Access exclusive travel deals and rewards.
+//         </p>
+
+//         <form onSubmit={handleSubmit} className="auth__form">
+//           <input
+//             type="email"
+//             name="email"
+//             placeholder="Email Address"
+//             value={form.email}
+//             onChange={handleChange}
+//             required
+//           />
+//           <input
+//             type="password"
+//             name="password"
+//             placeholder="Password"
+//             value={form.password}
+//             onChange={handleChange}
+//             required
+//           />
+//           <button
+//             type="submit"
+//             className={`auth__btn ${form.email && form.password ? "active" : ""}`}
+//             disabled={loading}
+//           >
+//             {loading ? "Logging in..." : "Login"}
+//           </button>
+//         </form>
+
+//         <p className="auth__bottom-text">
+//           Don’t have an account?{" "}
+//           <span onClick={() => navigate("/signup")} className="auth__link">
+//             Sign up
+//           </span>
+//         </p>
+//       </div>
+//     </div>
+//   );
+// };
+
+// export default Login;
+
+// import React, { useEffect, useState } from "react";
+// import { NavLink, useNavigate } from "react-router-dom";
+// import "./AdminDashboard.css";
+
+// const AdminDashboard = () => {
+//   const [users, setUsers] = useState([]);
+//   const [logins, setLogins] = useState([]);
+//   const [checkingAuth, setCheckingAuth] = useState(true);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser"));
+
+//     if (!loggedInUser || loggedInUser.email !== "admin@gmail.com") {
+//       alert("🚫 Access denied! Admins only.");
+//       navigate("/login");
+//       return;
+//     }
+
+//     const storedUsers = JSON.parse(localStorage.getItem("users")) || [];
+//     const storedLogins = JSON.parse(localStorage.getItem("loginLogs")) || [];
+
+//     setUsers(storedUsers);
+//     setLogins(storedLogins);
+//     setCheckingAuth(false);
+//   }, [navigate]);
+
+//   const handleLogout = () => {
+//     localStorage.removeItem("loggedInUser");
+//     alert("✅ Logged out successfully!");
+//     navigate("/login");
+//   };
+
+//   if (checkingAuth) {
+//     return (
+//       <div className="loader">
+//         <div className="spinner"></div>
+//         <p>Checking admin access...</p>
+//       </div>
+//     );
+//   }
+
+//   const totalUsers = users.length;
+//   const totalLogins = logins.length;
+//   const lastLogin =
+//     logins.length > 0 ? logins[logins.length - 1].time : "No logins yet";
+
+//   return (
+//     <div className="dashboard-container full-width">
+//       {/* 🌟 Admin Navbar */}
+//       <nav className="admin-navbar">
+//         <div className="admin-logo">Tripify Admin</div>
+
+//         <div className="admin-links">
+//           <NavLink to="/" className="admin-home">
+//             🏠 Home
+//           </NavLink>
+//           <button className="admin-logout" onClick={handleLogout}>
+//             🚪 Logout
+//           </button>
+//         </div>
+//       </nav>
+
+//       {/* HEADER */}
+//       <header className="header">
+//         <div className="header-top">
+//           <h1>👨‍💼 Admin Dashboard</h1>
+//           <p className="sub-header">Welcome, Admin — manage your platform</p>
+//         </div>
+        
+//       </header>
+
+//       {/* SUMMARY CARDS */}
+//       <section className="cards-container">
+//         <div className="card">
+//           <h3>Total Registered Users</h3>
+//           <p className="card-value">{totalUsers}</p>
+//         </div>
+//         <div className="card">
+//           <h3>Total Logins</h3>
+//           <p className="card-value">{totalLogins}</p>
+//         </div>
+//         <div className="card">
+//           <h3>Last Login</h3>
+//           <p className="card-value">{lastLogin}</p>
+//         </div>
+//         <div className="card">
+//           <h3>Active Admin</h3>
+//           <p className="card-value">admin@gmail.com</p>
+//         </div>
+//       </section>
+
+//       {/* USERS TABLE */}
+//       <section className="table-section">
+//         <h2>🧑‍🤝‍🧑 Registered Users</h2>
+//         {users.length === 0 ? (
+//           <p>No users found</p>
+//         ) : (
+//           <table className="table">
+//             <thead>
+//               <tr>
+//                 <th>Name</th>
+//                 <th>Email</th>
+//                 <th>Password</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {users.map((user, i) => (
+//                 <tr key={i}>
+//                   <td>{user.name}</td>
+//                   <td>{user.email}</td>
+//                   <td>{user.password}</td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//           </table>
+//         )}
+//       </section>
+
+//       {/* LOGIN HISTORY */}
+//       <section className="table-section">
+//         <h2>🔑 Login History</h2>
+//         {logins.length === 0 ? (
+//           <p>No login activity yet.</p>
+//         ) : (
+//           <table className="table">
+//             <thead>
+//               <tr>
+//                 <th>Name</th>
+//                 <th>Email</th>
+//                 <th>Login Time</th>
+//               </tr>
+//             </thead>
+//             <tbody>
+//               {logins.map((log, i) => (
+//                 <tr key={i}>
+//                   <td>{log.name}</td>
+//                   <td>{log.email}</td>
+//                   <td>{log.time}</td>
+//                 </tr>
+//               ))}
+//             </tbody>
+//           </table>
+//         )}
+//       </section>
+
+//       <footer className="footer">
+//         <p>
+//           © {new Date().getFullYear()} Travel Management System | Admin Portal
+//         </p>
+//       </footer>
+//     </div>
+//   );
+// };
+
+// export default AdminDashboard;
+
+
+//? added firebase
+
+// import React, { useEffect, useState } from "react";
+// import { NavLink, useNavigate } from "react-router-dom";
+// import "./AdminDashboard.css";
+
+// import { getDocs, collection } from "firebase/firestore";
+// import { signOut } from "firebase/auth";
+// import { getAppAuth, getAppDB } from "../firebase";
+
+// const AdminDashboard = () => {
+//   const [users, setUsers] = useState([]);
+//   const [logins, setLogins] = useState([]);
+//   const [checkingAuth, setCheckingAuth] = useState(true);
+//   const navigate = useNavigate();
+
+//   useEffect(() => {
+//     const auth = getAppAuth();
+//     const db = getAppDB();
+
+//     const adminEmail = auth.currentUser?.email;
+
+//     if (adminEmail !== "admin@gmail.com") {
+//       alert("🚫 Access denied! Admins only.");
+//       navigate("/login");
+//       return;
+//     }
+
+//     const fetchData = async () => {
+//       const u = await getDocs(collection(db, "users"));
+//       setUsers(u.docs.map((d) => d.data()));
+
+//       const l = await getDocs(collection(db, "loginLogs"));
+//       setLogins(l.docs.map((d) => d.data()));
+
+//       setCheckingAuth(false);
+//     };
+
+//     fetchData();
+//   }, [navigate]);
+
+//   const handleLogout = async () => {
+//     await signOut(getAppAuth());
+//     alert("Logged out!");
+//     navigate("/login");
+//   };
+
+//   if (checkingAuth) {
+//     return (
+//       <div className="loader">
+//         <div className="spinner"></div>
+//         <p>Checking admin access...</p>
+//       </div>
+//     );
+//   }
+
+//   const totalUsers = users.length;
+//   const totalLogins = logins.length;
+//   const lastLogin = logins.length > 0 ? logins[logins.length - 1].time : "No logins yet";
+
+//   return (
+//     <div className="dashboard-container full-width">
+//       <nav className="admin-navbar">
+//         <div className="admin-logo">Tripify Admin</div>
+
+//         <div className="admin-links">
+//           <NavLink to="/" className="admin-home">🏠 Home</NavLink>
+//           <button className="admin-logout" onClick={handleLogout}>🚪 Logout</button>
+//         </div>
+//       </nav>
+
+//       <header className="header">
+//         <div className="header-top">
+//           <h1>👨‍💼 Admin Dashboard</h1>
+//           <p className="sub-header">Welcome, Admin — manage your platform</p>
+//         </div>
+//       </header>
+
+//       <section className="cards-container">
+//         <div className="card">
+//           <h3>Total Registered Users</h3>
+//           <p className="card-value">{totalUsers}</p>
+//         </div>
+
+//         <div className="card">
+//           <h3>Total Logins</h3>
+//           <p className="card-value">{totalLogins}</p>
+//         </div>
+
+//         <div className="card">
+//           <h3>Last Login</h3>
+//           <p className="card-value">{lastLogin}</p>
+//         </div>
+
+//         <div className="card">
+//           <h3>Active Admin</h3>
+//           <p className="card-value">admin@gmail.com</p>
+//         </div>
+//       </section>
+
+//       <section className="table-section">
+//         <h2>🧑‍🤝‍🧑 Registered Users</h2>
+//         <table className="table">
+//           <thead>
+//             <tr><th>Name</th><th>Email</th></tr>
+//           </thead>
+//           <tbody>
+//             {users.map((u, i) => (
+//               <tr key={i}>
+//                 <td>{u.name}</td>
+//                 <td>{u.email}</td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </section>
+
+//       <section className="table-section">
+//         <h2>🔑 Login History</h2>
+//         <table className="table">
+//           <thead>
+//             <tr><th>Name</th><th>Email</th><th>Login Time</th></tr>
+//           </thead>
+//           <tbody>
+//             {logins.map((l, i) => (
+//               <tr key={i}>
+//                 <td>{l.name}</td>
+//                 <td>{l.email}</td>
+//                 <td>{l.time}</td>
+//               </tr>
+//             ))}
+//           </tbody>
+//         </table>
+//       </section>
+
+//       <footer className="footer">
+//         <p>© {new Date().getFullYear()} Travel Management System | Admin Portal</p>
+//       </footer>
+//     </div>
+//   );
+// };
+
+// export default AdminDashboard;

@@ -31,7 +31,7 @@ const Hero = () => {
   };
 
   const handleGetStarted = () => {
-    navigate('/travel-booking');
+    navigate('/about');
   };
 
 

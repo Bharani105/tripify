@@ -38,10 +38,21 @@ const Footer = () => {
         <div className="footerSection">
           <h4 className="linkTitle">Information</h4>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Destination</a></li>
-            <li><a href="#">Gallery</a></li>
-            <li><a href="#">Tour</a></li>
+            <li> <NavLink to="/" className="navLi">
+              Home
+            </NavLink></li>
+            <li> <NavLink to="/about" className="navLi">
+              About
+            </NavLink></li>
+            <li> <NavLink to="/destination" className="navLi">
+              Destinaton
+            </NavLink></li>
+            <li> <NavLink to="/tour" className="navLi">
+              Tour
+            </NavLink></li>
+            <li> <NavLink to="/contact" className="navLi">
+              Contact
+            </NavLink></li>
           </ul>
         </div>
 

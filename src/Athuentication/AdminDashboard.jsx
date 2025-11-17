@@ -20,7 +20,7 @@ const AdminDashboard = () => {
 
     const adminEmail = auth.currentUser?.email;
 
-    if (adminEmail !== "admin@gmail.com") {
+    if (adminEmail !== "tripifyadmin@gmail.com") {
       alert("🚫 Access denied! Admins only.");
       navigate("/login");
       return;

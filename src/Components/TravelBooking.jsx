@@ -65,6 +65,12 @@ const TravelBooking = () => {
     setSending(true);
     setStatus("");
 
+    if (!formRef.current.checkValidity()) {
+      formRef.current.reportValidity();
+      setSending(false);
+      return;
+    }
+
     if (!window.Razorpay) {
       setStatus("Payment gateway failed to load.");
       setSending(false);
@@ -85,10 +91,10 @@ const TravelBooking = () => {
           await saveBookingToFirebase(response.razorpay_payment_id);
 
           await emailjs.sendForm(
-            "service_xft3fag",
-            "template_5mmq8jl",
+            import.meta.env.VITE_TRAVEL_SERVICE_ID,
+            import.meta.env.VITE_TRAVEL_TEMPLATE_ID,
             formRef.current,
-            "hNNhto4ZOIPtk9L2w"
+            import.meta.env.VITE_TRAVEL_PUBLIC_KEY
           );
 
           alert("🎉 Payment Successful! Booking Confirmed.");
@@ -335,6 +341,7 @@ const TravelBooking = () => {
             <textarea name="message" placeholder="Special Requests..." />
 
             <button
+              type="submit"
               onClick={handleBookingAndPayment}
               className="book-btn"
               disabled={sending}

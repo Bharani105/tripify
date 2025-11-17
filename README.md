@@ -43,7 +43,6 @@ Tripify allows users to explore tour packages, book trips online, make secure pa
 - Firebase Authentication
 - Firebase Firestore
 - Razorpay Payment Gateway
-
 ---
 
 ## 🙋‍♂️ Author
